@@ -10,22 +10,24 @@ const unsigned int uiMaxChar = 1024;
 int main( int argc, char * argv [] ) {
     
     // Setup the config
-    Config::GetInstance()->SetTemplateFileName( "test.txt" );
-    Config::GetInstance()->SetLiveFileName( "test2.txt" );
+    Config::GetInstance()->ReadDataFromFile( "config.cfg" );
     
+    // setup the template file ifstream
+    // and live file ofstream
     std::ifstream tFile;
     tFile.open( Config::GetInstance()->GetTemplateFileName().c_str() );
     std::ofstream oFile;
     oFile.open( Config::GetInstance()->GetLiveFileName().c_str() );
 
+    // read infile, size of read portion is defined by uiMaxChar
     while ( tFile ){
-    
     	char * readBuffer = new char[ uiMaxChar ];
     	tFile.read( readBuffer, uiMaxChar );
 
 	oFile << readBuffer;
     }
-    
+
+    // dont foget to close that fstream file shit!
     tFile.close();
     oFile.close();
 	

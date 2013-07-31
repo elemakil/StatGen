@@ -16,5 +16,9 @@ Config * Config::GetInstance() {
 
 
 void Config::ReadDataFromFile( std::string sConfigFile ){
-    
+    DataExchange configReader;
+    configReader.SetFile( sConfigFile.c_str() );
+    configReader.ReadFromFile();
+    SetTemplateFileName( configReader.Get<std::string>( "TemplateFileName" ) );
+    SetLiveFileName( configReader.Get<std::string>( "LiveFileName" ) );
 }

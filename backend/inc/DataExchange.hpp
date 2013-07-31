@@ -8,6 +8,7 @@
 #include <vector>
 #include <list>
 #include <exception>
+#include <map>
 
 // my own stuff
 #include "Utils.hpp"
@@ -192,19 +193,19 @@ public:
     /*
      * Delete value from key
      */
-    void DeleteEntry( std::string key, int iVec ){
+    void DeleteEntry( std::string key, unsigned int uiVec ){
 	if ( m_bReadOnly ){
 	    DataExchangeException excp( std::string( "This instance of DataExchange is ReadOnly!" ) );
             throw excp;
 	}
 
         if ( m_Exists( key ) ){
-            if ( m_mDataStorage[ key ].size() <= iVec ){
-                DataExchangeException excp( std::string( "Value entry " ) + ToString( iVec ) + std::string( "not found for parameter '" ) + key + std::string( "' in " ) + std::string( m_sFileName ) + std::string(".") );
+            if ( m_mDataStorage[ key ].size() <= uiVec ){
+                DataExchangeException excp( std::string( "Value entry " ) + ToString( uiVec ) + std::string( "not found for parameter '" ) + key + std::string( "' in " ) + std::string( m_sFileName ) + std::string(".") );
                 throw excp;
             }
             else {
-                m_mDataStorage[ key ].erase( m_mDataStorage[ key ].begin() + iVec );
+                m_mDataStorage[ key ].erase( m_mDataStorage[ key ].begin() + uiVec );
             }
         }
         else {
