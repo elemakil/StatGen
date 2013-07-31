@@ -8,7 +8,10 @@ InputParser::InputParser( std::string sInput ) : m_sInput( sInput ){
     
 }
 
-// do some syntax checks
+// Do basic checks of the syntax of the user input
+// checks for:
+//   - unmatched parentheses
+//   - correct Ket notation
 /* virtual */ bool InputParser::m_fCheckSyntax(){
     size_t uiCountOpenParen = std::count( m_sInput.begin(), m_sInput.end(), '(' );
     size_t uiCountCloseParen = std::count( m_sInput.begin(), m_sInput.end(), ')' );
