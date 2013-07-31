@@ -160,15 +160,15 @@ int main(){
     
     part.Print();
     
-    Operators::TransformC( & part );
+    Operators::TransformC( part );
     std::cout << "C: ";
     part.Print();
     
-    Operators::TransformP( & part );
+    Operators::TransformP( part );
     std::cout << "P: ";
     part.Print();
     
-    Operators::TransformT( & part );
+    Operators::TransformT( part );
     std::cout << "T: ";
     part.Print();
 }
