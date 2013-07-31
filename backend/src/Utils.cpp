@@ -1,10 +1,10 @@
 
 #include "Utils.hpp"
 
-template <std::string, std::string> std::string lexical_cast( const std::string & from ){
+template <> std::string lexical_cast<std::string, std::string>( const std::string & from ){
     return from;
 }
 
-template <std::string> std::string ToString( const std::string & input ){
+template <> std::string ToString<std::string>( const std::string & input ){
     return input;
 }

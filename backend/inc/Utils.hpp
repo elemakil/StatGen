@@ -16,7 +16,7 @@ template <typename T, typename U> T lexical_cast( const U & from ){
     return out;
 }
 
-template <std::string, std::string> std::string lexical_cast( const std::string & from );
+template <> std::string lexical_cast<std::string, std::string>( const std::string & from );
 
 /*!
  * @brief Converts any input type to a std::string (assuming it can be converted)
@@ -32,7 +32,7 @@ template <typename T> std::string ToString( const T & input ) {
     return ss.str();
 }
 
- template <std::string> std::string ToString( const std::string & input );
+ template <> std::string ToString<std::string>( const std::string & input );
 
 
 
