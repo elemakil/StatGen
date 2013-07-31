@@ -21,10 +21,10 @@ int main( int argc, char * argv [] ) {
 
     // read infile, size of read portion is defined by uiMaxChar
     while ( tFile ){
-    	char * readBuffer = new char[ uiMaxChar ];
+    	char * readBuffer = new char[ uiMaxChar ]; // Store Data
     	tFile.read( readBuffer, uiMaxChar );
-
-	oFile << readBuffer;
+	
+	oFile << readBuffer;	// Write that shit!
     }
 
     // dont foget to close that fstream file shit!
