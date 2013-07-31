@@ -31,7 +31,8 @@ inline void SwitchFlavour( Flavour::aFlavour & flavour ){
 namespace Spin {
     enum aSpin {
 	Up,
-	Down
+	Down,
+	NoSpin
     };
     
     extern const char * Names [];
@@ -39,7 +40,9 @@ namespace Spin {
 
 // this functions switches from spin-up to spin down and vice-versa
 inline void SwitchSpin( Spin::aSpin & spin ){
-    spin = static_cast<Spin::aSpin>( ( static_cast<int>( spin ) + 1 ) % 2 );    
+    if ( spin != Spin::NoSpin ){
+	spin = static_cast<Spin::aSpin>( ( static_cast<int>( spin ) + 1 ) % 2 );    
+    }
 }
 
 namespace Colour {
@@ -47,10 +50,14 @@ namespace Colour {
 	Red,
 	Green,
 	Blue,
+	White,
     
 	AntiRed,
 	AntiGreen,
-	AntiBlue
+	AntiBlue,
+	AntiWhite,
+	
+	NoColour
     };
     
     extern const char * Names [];
@@ -58,13 +65,17 @@ namespace Colour {
 
 // this functions switches from colour to anti-colour and vice-versa
 inline void SwitchColour( Colour::aColour & colour ){
-    colour = static_cast<Colour::aColour>( ( static_cast<int>( colour ) + 3 ) % 6 );    
+    if ( colour != Colour::NoColour ){
+	colour = static_cast<Colour::aColour>( ( static_cast<int>( colour ) + 4 ) % 8 );    
+    }
 }
 
 namespace Handedness {
     enum aHandedness {
 	Left,
-	Right
+	Right,
+	
+	NoHandedness
     };
     
     extern const char * Names [];
@@ -72,7 +83,9 @@ namespace Handedness {
 
 // this functions switches from left-handedness to right-handedness and vice-versa
 inline void SwitchHandedness( Handedness::aHandedness & hand ){
-    hand = static_cast<Handedness::aHandedness>( ( static_cast<int>( hand ) + 1 ) % 2 );    
+    if ( hand != Handedness::NoHandedness ){
+	hand = static_cast<Handedness::aHandedness>( ( static_cast<int>( hand ) + 1 ) % 2 );    
+    }
 }
 
 
