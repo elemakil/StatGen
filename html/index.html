@@ -24,12 +24,14 @@ div.redquark {
 	height: 182px;
 }
 
+
 div.umkreis {
   width: 300px;
   height: 300px;
-  padding: 50px;
+  padding: 50px 150px;
   border: 4px #000044 groove;
   background-color: #000044;
+  border-radius: 20px;
 }
 
 div.kreis {
@@ -43,10 +45,21 @@ div.left,
 div.middle,
 div.right {
   float:left;
-  width:150px;
+  margin:10px;
 }
+
+div.left,
+div.right {
+	width:150px;
+	border: 4px #4444ff groove;
+  background-color: #4444ff;
+  border-radius: 20px;
+  padding:5px;
+  
+}
+  
 div.middle {
-	width:600px;
+
 }
 
 div.top {
@@ -57,7 +70,41 @@ div.top {
 	left:0;
 	background-color: #007;
 	z-index:1;
+	padding:2px;
+	color:white;
+	font-size:20pt;
 }
+div.top input {
+	width:600px;
+}
+
+div.top button, div.top input, div.top select {
+	font-size:20pt;
+	background-color: #bbbbbb;
+	border:none;
+	height:36px;
+	padding:0px;
+	margin:2px;
+}
+
+div.top button
+{
+	color: white;
+	border: 1px black solid;
+}
+
+div.top button.home
+{
+	position: fixed;
+	right:0px;
+	color:white;
+	background-color: black;
+}
+
+div.top select{
+	height:32px;
+}
+
 
 div.topspacer {
 	height:40px;
@@ -78,7 +125,18 @@ div.bottom {
 </head>
 <body>
 	<!--h1 align="center">Zygentoma&nbsp;&nbsp;&nbsp;&nbsp;<img src="_zygentoma.png" alt="Zygentoma" /></h1-->
-	<div class="top">test</div>
+	<div class="top">
+<select>
+   <option value="volvo">Select a hadron</option>
+   <option value="saab">Proton (p)</option>
+   <option value="mercedes">Neutron (n)</option>
+   <option value="audi">Pion (π+)</option>
+   <option value="audi">Pion (π-)</option>
+   <option value="audi">Pion (π0)</option>
+ </select>
+ <input type="text" name="ket" value="|uud>" />
+ <button type="button">GO</button>
+ <button type="button" class="home">home</button></div>
 	<div class="topspacer"></div>
 	
 	

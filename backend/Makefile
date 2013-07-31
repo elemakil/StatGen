@@ -20,6 +20,7 @@ DEP_MAIN := $(DEP_FILES) dep/main.d
 
 all: directories $(OBJ_MAIN)
 	$(CXX) -Wl,--no-as-needed $(OBJ_MAIN) -o ../StatGen.cgi
+	$(CXX) -Wl,--no-as-needed testing/kettest.cpp obj/Ket.o -o testing/kettest
 	@echo '-> StatGen.cgi created!'
 
 test: directories $(OBJ_FILES) $(OBJ_TESTING_FILES)
