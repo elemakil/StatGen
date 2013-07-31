@@ -88,5 +88,13 @@ inline void SwitchHandedness( Handedness::aHandedness & hand ){
     }
 }
 
+namespace Type {
+    enum aType {
+	Fermion,
+	Boson
+    };
+    
+    extern const char * Names [];
+}
 
 #endif // QUANTUMNUMBERS_H
