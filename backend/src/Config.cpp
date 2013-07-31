@@ -14,3 +14,7 @@ Config * Config::GetInstance() {
     return m_pInstance;
 }
 
+
+void Config::ReadDataFromFile( std::string sConfigFile ){
+    
+}

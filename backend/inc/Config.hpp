@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include "DataExchange.hpp"
+
 // Config Class (storing config etc.)
 // implemented using singleton design pattern
 class Config {
@@ -17,6 +19,8 @@ public:
     
     void SetTemplateFileName( const std::string & sFileName ){ m_sTemplateFileName = sFileName; }
     void SetLiveFileName( const std::string & sFileName ){ m_sLiveFileName = sFileName; }
+    
+    void ReadDataFromFile( std::string sConfigFile );
     
 private:
     // singleton
