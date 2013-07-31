@@ -86,6 +86,11 @@ int main(){
     SwitchColour( cl );
     std::cout << "|" << Colour::Names[ cl ] << ">" << std::endl;
     
+    cl = Colour::White;
+    std::cout << "C |" << Colour::Names[ cl ] << "> = ";
+    SwitchColour( cl );
+    std::cout << "|" << Colour::Names[ cl ] << ">" << std::endl;
+    
     cl = Colour::AntiRed;
     std::cout << "C |" << Colour::Names[ cl ] << "> = ";
     SwitchColour( cl );
@@ -97,6 +102,16 @@ int main(){
     std::cout << "|" << Colour::Names[ cl ] << ">" << std::endl;
     
     cl = Colour::AntiBlue;
+    std::cout << "C |" << Colour::Names[ cl ] << "> = ";
+    SwitchColour( cl );
+    std::cout << "|" << Colour::Names[ cl ] << ">" << std::endl;
+    
+    cl = Colour::AntiWhite;
+    std::cout << "C |" << Colour::Names[ cl ] << "> = ";
+    SwitchColour( cl );
+    std::cout << "|" << Colour::Names[ cl ] << ">" << std::endl;
+    
+    cl = Colour::NoColour;
     std::cout << "C |" << Colour::Names[ cl ] << "> = ";
     SwitchColour( cl );
     std::cout << "|" << Colour::Names[ cl ] << ">" << std::endl;
@@ -115,6 +130,11 @@ int main(){
     SwitchSpin( sp );
     std::cout << "|" << Spin::Names[ sp ] << ">" << std::endl;
     
+    sp = Spin::NoSpin;
+    std::cout << "T |" << Spin::Names[ sp ] << "> = ";
+    SwitchSpin( sp );
+    std::cout << "|" << Spin::Names[ sp ] << ">" << std::endl;
+    
     std::cout << std::endl;
     
     Handedness::aHandedness hand;
@@ -125,6 +145,11 @@ int main(){
     std::cout << "|" << Handedness::Names[ hand ] << ">" << std::endl;
     
     hand = Handedness::Right;
+    std::cout << "P |" << Handedness::Names[ hand ] << "> = ";
+    SwitchHandedness( hand );
+    std::cout << "|" << Handedness::Names[ hand ] << ">" << std::endl;
+    
+    hand = Handedness::NoHandedness;
     std::cout << "P |" << Handedness::Names[ hand ] << "> = ";
     SwitchHandedness( hand );
     std::cout << "|" << Handedness::Names[ hand ] << ">" << std::endl;
