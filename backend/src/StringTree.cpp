@@ -5,21 +5,17 @@ StringTree::StringTree( std::string sInput ) : m_sInput( sInput ){
     m_RootNode->Parent = NULL;
     m_RootNode->PartStart = 0;
     m_RootNode->PartEnd = sInput.size() - 1;
-    m_RootNode->lChild = NULL;
-    m_RootNode->rChild = NULL;
-    m_RootNode->Combine = "";
 }
 
 /* virtual */ StringTree::~StringTree(){
     DeleteChildren( m_RootNode );
 }
 
-/* virtual */ void StringTree::Atomise( StringTreeNode * target, StringTreeLevel stage /* = Parentheses */ ){
+/* virtual */ void StringTree::Atomise( StringTreeNode * parent, StringTreeNode * target, StringTreeLevel stage /* = Parentheses */ ){
     if ( stage == Parentheses ){
 	size_t uiOpeningParenthesis = m_sInput.substr( target->PartStart, target->PartEnd - target->PartStart ).find( "(" );
 	
 	if ( uiOpeningParenthesis != std::string::npos ){
-	    
 	}
 	else {
 	}

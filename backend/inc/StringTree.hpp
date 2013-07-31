@@ -19,10 +19,8 @@ struct StringTreeNode {
     size_t PartStart;
     size_t PartEnd;
     
-    std::string Combine;
-    
-    StringTreeNode * lChild;
-    StringTreeNode * rChild;
+    std::vector<StringTreeNode*> Children;
+    std::vector<std::string> Operators;
 };
 
     
@@ -31,7 +29,7 @@ public:
     StringTree( std::string sInput );
     virtual ~StringTree();
     
-    virtual void Atomise( StringTreeNode * target, StringTreeLevel stage = Parentheses );
+    virtual void Atomise( StringTreeNode * parent, StringTreeNode * target, StringTreeLevel stage = Parentheses );
 private:        
     virtual void DeleteChildren( StringTreeNode * target );
 
