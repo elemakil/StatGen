@@ -1,0 +1,23 @@
+total 116
+-rw-rw-r--  1 elemakil elemakil    27 Jun 20 20:13 cern_notes.txt
+-rw-rw-r--  1 elemakil elemakil  2923 Jun 20 20:11 cern_usercert.pem
+-rw-rw-r--  1 elemakil elemakil  1994 Jun 20 20:11 cern_userkey.pem
+drwxrwxr-x  2 elemakil elemakil  4096 Jun 28 01:13 Decrypted
+drwxr-xr-x  3 elemakil elemakil  4096 Jul 31 02:51 Desktop
+drwxr-xr-x  5 elemakil elemakil  4096 Jul 31 06:44 Documents
+drwxr-xr-x 11 elemakil elemakil  4096 Jul 31 02:51 Downloads
+-rwxrwxr-x  1 elemakil elemakil   835 Jun 28 01:27 encfs_recover.pl
+drwxrwxr-x  2 elemakil elemakil  4096 Jul 30 19:57 ForSara
+drwxr-xr-x  2 elemakil elemakil  4096 Jun 14 12:16 Music
+drwxr-xr-x  2 elemakil elemakil  4096 Jun 14 12:16 Pictures
+drwxr-xr-x  2 elemakil elemakil  4096 Jun 14 12:16 Public
+drwxrwxr-x  4 elemakil elemakil  4096 Jul 30 22:26 Temp
+drwxr-xr-x  2 elemakil elemakil  4096 Jun 14 12:16 Templates
+-rw-rw-r--  1 elemakil elemakil    54 Jun 14 16:22 tmux-client-3298.log
+-rw-rw-r--  1 elemakil elemakil 15510 Jun 14 16:22 tmux-server-3300.log
+-rw-r--r--  1 elemakil elemakil 14305 Jul  1 09:58 Truth_WH_PtV.pdf
+-rwxrw-rw-  1 elemakil elemakil  3662 Jun 24 13:58 usercred.p12
+drwxr-xr-x  2 elemakil elemakil  4096 Jun 14 12:16 Videos
+lrwxrwxrwx  1 elemakil elemakil     7 Jul  1 11:56 Work -> Work-VH
+drwxrwxr-x  2 elemakil elemakil 12288 Jul  1 11:38 Work-DEPFET
+drwxrwxr-x  2 elemakil elemakil  4096 Jul  1 11:57 Work-VH
