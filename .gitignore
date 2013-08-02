@@ -1,0 +1,92 @@
+# GITIGNORE FOR UNI.git REPOSITORY
+
+# temp files for quite a lot of editors
+*~
+
+# LaTeX
+
+*.aux
+*.brf
+*.out
+*.log
+*.toc
+*.synctex.gz
+*.acn
+*.acr
+*.alg
+*.bbl
+*.blg
+*.fdb_latexmk
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.lot
+*.maf
+*.mtc
+*.mtc0
+*.nav
+*.nlo
+*.pdfsync
+*.snm
+*.vrb
+*.xdy
+*.bcf
+_region_.tex
+
+## no pygment files please
+*.pyg
+
+# metapost/feynmf files
+*.1
+*.mp
+*.t1
+
+## C/C++:
+
+# build dir
+build/
+
+# executables:
+*.x
+*.exe
+*.X
+
+# Compiled Object files:
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries:
+*.so
+
+# Compiled Static libraries:
+*.lai
+*.la
+*.a
+
+# compiled by root
+*_C.d
+
+## emacs
+auto/
+.emacs-project
+.predictive/
+\#*
+*.#*
+
+# rope
+.ropeproject
+
+## lisp, no compiled code please
+*.elc
+
+# GTAGS
+GTAGS
+GRTAGS
+GPATH
+GSYMS
