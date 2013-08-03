@@ -15,4 +15,10 @@ int main()
 	k.distribute();
 	k.echo();
 	cout << "\n";
+	
+	k.read("|uud>(|++->+|+-+>+|-++>)(|123>+|231>+|312>-|321>-|132>-|213>)");
+	k.echo();
+	k.distribute();
+	k.echo();
+	cout << "\n";
 }
