@@ -5,9 +5,14 @@ int main()
 {
 	using namespace std;
 	Ket k;
-	k.read("|test>(|hi>+|b>)|c>+|k>");
+	k.read("|a>+|b>(|c>+|d>)+(|e>+|f>)(|g>+|h>)+|i>(|j>+(|k>+(|l>+|m>)))");
 	k.echo();
-	k.read("");
+	k.distribute();
+	k.echo();
+	
+	k.read("(|a>+|b>)(((|c>+|d>)(|e>+|f>))(|g>+|h>))");
+	k.echo();
+	k.distribute();
 	k.echo();
 	cout << "\n";
 }
