@@ -21,6 +21,7 @@ CookieParser::CookieParser( char * cookies ){
 }
 
 /* virtual */ void CookieParser::Print( std::ostream & aStream /* = std::cout */ ){
+    aStream << "<!-- Data has" << m_mssData.size() << " entries -->" << std::endl;
     for ( auto it=m_mssData.begin(); it!=m_mssData.end(); ++it ){
 	aStream << "<!-- \"" << it->first << "\" -> \"" << it->second << "\" -->" << std::endl;
     }
