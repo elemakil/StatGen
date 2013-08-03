@@ -5,14 +5,3 @@
 				<img src="../graphics/particles/green.png" style="position:absolute;top:104px;left:0px;" />
 				<img src="../graphics/particles/blue.png"  style="position:absolute;top:104px;left:120px;" />
 			</div>
-		</div>
-		<br />
-
-		<div class="runderrahmen" id="ops">
-			<h3>Operatoren</h3>
-			<button type="button">Charge (C)</button>
-			<button type="button">Parity (P)</button>
-			<button type="button">Time reversal (T)</button>
-		</div>
-		
-	</div>

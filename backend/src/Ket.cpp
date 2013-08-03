@@ -17,7 +17,8 @@ std::vector<CompoundParticle *> *Ket::createCompounds(std::string ketstring)
 {
 	if (ketstring != "")
 	{
-		read(ketstring);
+		if (read(ketstring) == -1)
+			return 0;
 		distribute();
 	}
 	
@@ -31,7 +32,7 @@ std::vector<CompoundParticle *> *Ket::createCompounds(std::string ketstring)
 		{
 			for (uint s = 0; s < parts[i][j].content.size(); s++)
 			{
-				std::cout << parts[i][j].content[s];
+				//std::cout << parts[i][j].content[s];
 				
 				//std::pair<QuantumNumber::aQuantumNumber,QuantumNumber::uQuantumNumber>
 				auto blub = QuantumNumber::GetFromChar(parts[i][j].content[s]);
@@ -65,7 +66,7 @@ std::vector<CompoundParticle *> *Ket::createCompounds(std::string ketstring)
 		}
 		vec->push_back(cp);
 		
-		std::cout << "\n";
+		//std::cout << "\n";
 	}
 	return vec;
 }
@@ -131,7 +132,7 @@ void Ket::distribute()
 
 int Ket::read(std::string ketstring)
 {
-	std::cout << "ghm?\n";
+	//std::cout << "ghm?\n";
 	//return 0;
 	
  	using namespace std;
@@ -141,7 +142,7 @@ int Ket::read(std::string ketstring)
 
 	while (ketstring != "")
 	{
-		cerr << ketstring << "\n";
+		//cerr << ketstring << "\n";
 		if (ketstring[0] == '(')
 		{
 			ketstring.erase(0, 1);
@@ -150,8 +151,8 @@ int Ket::read(std::string ketstring)
 			if (!n)
 			{
 				parts.clear();
-				cerr  << "Unmatched parantheses..." << "\n";
-				break;
+				cout  << "Unmatched parantheses..." << "\n";
+				return -1;
 			}
 			ketstring.erase(0, n);
 			parts[parts.size()-1].push_back(neuket);
@@ -188,7 +189,7 @@ int Ket::read(std::string ketstring)
 		}
 		else
 		{
-			cerr << "halp: " << ketstring;
+			cout << "Error parsing parameters.";// << ketstring;
 			return 0;
 		}
 	}
