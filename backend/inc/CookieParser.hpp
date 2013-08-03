@@ -17,6 +17,7 @@ public:
     virtual void Print( std::ostream & aStream = std::cout );
     
     virtual inline std::string GetData( std::string sKey ) { return m_mssData[ sKey ]; }
+    virtual inline bool IsKeyPresent( std::string sKey ) { return ( m_mssData.find( sKey ) != m_mssData.end() ); }
 private:
     std::map<std::string,std::string> m_mssData;
 };
