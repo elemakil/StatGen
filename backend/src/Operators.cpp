@@ -2,17 +2,17 @@
 
 namespace Operators {
 
-    void TransformP( Particle * part ){
-	SwitchHandedness( part->Handedness );
+    void TransformP( Particle & particle ){
+	SwitchHandedness( particle.Handedness );
     }
 
-    void TransformC( Particle * part ){
-	SwitchColour( part->Colour );
-	SwitchFlavour( part->Flavour );
+    void TransformC( Particle & particle ){
+	SwitchColour( particle.Colour );
+	SwitchFlavour( particle.Flavour );
     }
     
-    void TransformT( Particle * part ){
-	SwitchSpin( part->Spin );
+    void TransformT( Particle & particle ){
+	SwitchSpin( particle.Spin );
     }
     
 }

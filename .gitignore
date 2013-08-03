@@ -1,4 +1,7 @@
-# GITIGNORE FOR UNI.git REPOSITORY
+# GITIGNORE FOR StatGen.git REPOSITORY
+
+# compilation directories
+backend/dep/*
 
 # temp files for quite a lot of editors
 *~
@@ -53,6 +56,7 @@ build/
 
 # executables:
 *.x
+*.cgi
 *.exe
 *.X
 

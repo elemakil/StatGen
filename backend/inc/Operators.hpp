@@ -5,11 +5,11 @@
 #include "Particle.hpp"
 
 namespace Operators {
-    void TransformP( Particle * part );
+    void TransformP( Particle & particle );
     
-    void TransformC( Particle * part );
+    void TransformC( Particle & particle );
     
-    void TransformT( Particle * part );
+    void TransformT( Particle & particle );
 }
 
 
