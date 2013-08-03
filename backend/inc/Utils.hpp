@@ -35,5 +35,13 @@ template <typename T> std::string ToString( const T & input ) {
  template <> std::string ToString<std::string>( const std::string & input );
 
 
+/*!
+ * @brief Replace all occurances from "from" by "to" in "target"
+ * @param target the target std::string
+ * @param from the original match
+ * @param to the replacement
+ */
+void ReplaceAll( std::string & target, const std::string & from, const std::string & to );
+
 
 #endif // UTILS_H
