@@ -61,6 +61,7 @@ namespace Colour {
     };
     
     extern const char * Names [];
+    extern const char * FileNames [];
 }
 
 // this functions switches from colour to anti-colour and vice-versa
