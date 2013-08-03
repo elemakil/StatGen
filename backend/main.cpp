@@ -6,6 +6,7 @@
 #include "Config.hpp"
 #include "Particle.hpp"
 #include "Ket.hpp"
+#include "TemplateParser.hpp"
 
 // maximum number of characters to read in one cycle
 const unsigned int uiMaxChar = 1;
@@ -30,16 +31,11 @@ int main( int argc, char * argv [] ) {
 	config.ReadFromFile();
 	//Config::GetInstance()->ReadDataFromFile( "config.cfg" );
 	
-	// setup the template file ifstream
-	// and live file ofstream
-	std::ofstream oFile;
-	oFile.open(config.Get<std::string>("LiveFileName").c_str());
 	
-	std::ifstream tFile;
 	
-	tFile.open(config.Get<std::string>("Template_Header").c_str());
-	copyFiles(tFile, oFile);
-	tFile.close();
+	
+	
+	
 	
 	char *query_cstr = getenv("QUERY_STRING");
 	if (!query_cstr)
@@ -81,6 +77,31 @@ int main( int argc, char * argv [] ) {
 	
 	Ket k;
 	vector<CompoundParticle *> *cpvec  = k.createCompounds(ket);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// setup the template file ifstream
+	// and live file ofstream
+	std::ofstream oFile;
+	oFile.open(config.Get<std::string>("LiveFileName").c_str());
+	std::ifstream tFile;
+	
+	tFile.open(config.Get<std::string>("Template_Header").c_str());
+	copyFiles(tFile, oFile);
+	tFile.close();
+	
+	TemplateParser header(config.Get<std::string>("Template_Header"), config.Get<std::string>("LiveFileName"));
+	header.AddData("___VAR_KET___", ket);
+	header.PerformReplacement();
+	
+	
+	
 	
 	//	std::ifstream tFile2;
 	//	std::cout << config.Get<std::string>("Template_Middle").c_str() << std::flush;
