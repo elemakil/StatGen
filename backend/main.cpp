@@ -41,7 +41,7 @@ int main( int argc, char * argv [] ) {
 	char *query_cstr = getenv("QUERY_STRING");
 	if (!query_cstr)
 	{
-		query_cstr = (char*)"ket=|uud>";	
+		query_cstr = (char*)"ket=|uud>|123>";	
 			//std::cout << "NOQUERY" << std::flush;
 	}
 	//std::cout << "TEST" << std::flush;
@@ -52,7 +52,7 @@ int main( int argc, char * argv [] ) {
 	if (query.size() >= 7)
 		ket = query.substr(4);
 	else 
-		ket = "|uud>|rgb>";
+		ket = "|uud>|123>";
 	
 	int pos = ket.find('%');
 	while (pos >= 0)
