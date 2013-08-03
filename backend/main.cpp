@@ -38,7 +38,10 @@ int main( int argc, char * argv [] ) {
 	copyFiles(tFile, oFile);
 	tFile.close();
 	
-	
+	char *query_cstr = getenv("QUERY_STRING");
+	if (!query_cstr)
+		query_cstr = "|uud>";
+
 	std::cout << getenv("QUERY_STRING") << std::flush;
 	std::string query(getenv("QUERY_STRING"));
 	std::string ket = query.substr(4);
@@ -53,6 +56,7 @@ int main( int argc, char * argv [] ) {
 		cout << "\n";
 		(*it)->Print();
 	}
+
 	
 	
 	tFile.open(config.Get<string>("Template_Middle").c_str());
