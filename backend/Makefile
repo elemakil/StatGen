@@ -44,6 +44,7 @@ directories:
 	@${MKDIR_P} obj/
 	@${MKDIR_P} dep/
 	@${MKDIR_P} bin/
+	@${MKDIR_P} data/
 
 -include $(DEP_MAIN)
 
