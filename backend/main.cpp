@@ -52,7 +52,7 @@ int main( int argc, char * argv [] ) {
 	if (query.size() >= 7)
 		ket = query.substr(4);
 	else 
-		ket = "|udd>";
+		ket = "|uud>|rgb>";
 	
 	int pos = ket.find('%');
 	while (pos >= 0)
