@@ -107,7 +107,7 @@ int main( int argc, char * argv [] ) {
 		TemplateParser image( sImageTemplateFile, config.Get<std::string>( "LiveFileName" ) );
 		for ( size_t iPart=0; iPart<cpvec->at( 0 )->GetNumConstituents(); ++iPart ){
 		    std::string sKey = "___c" + ToString( iPart ) + "___";
-		    std::string sFileName = config.Get<std::string>( "ParticlePicturePath" ) + Colour::FileNames[ cpvec->at( 0 )->ReadConstituent( iPart ).Colour ];
+		    std::string sFileName = Colour::FileNames[ cpvec->at( 0 )->ReadConstituent( iPart ).Colour ];
 		    image.AddData( sKey, sFileName );
 		}
 		image.PerformReplacement();
