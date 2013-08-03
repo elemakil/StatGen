@@ -1,7 +1,8 @@
 #ifndef QUANTUMNUMBERS_H
 #define QUANTUMNUMBERS_H
 
-#include <iostream>
+#include <string>
+#include <utility>
 
 namespace Flavour {
     enum aFlavour {
@@ -96,5 +97,26 @@ namespace Type {
     
     extern const char * Names [];
 }
+
+namespace QuantumNumber {
+    enum aQuantumNumber {
+	Flavour,
+	Colour,
+	Spin,
+	Handedness,
+	
+	Error
+    };
+    
+    union uQuantumNumber {
+	Flavour::aFlavour Flavour;
+	Colour::aColour Colour;
+	Spin::aSpin Spin;
+	Handedness::aHandedness Handedness;
+    };
+
+    std::pair<aQuantumNumber,uQuantumNumber> GetFromString( char cData );
+}
+
 
 #endif // QUANTUMNUMBERS_H
