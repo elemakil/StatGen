@@ -23,3 +23,14 @@ CookieParser::CookieParser( char * cookies ){
 	aStream << "\"" << it->first << "\" -> \"" << it->second << "\"" << std::endl;
     }
 }
+
+/* virtual */ std::vector<std::string> CookieParser::GetOperations(){
+    std::vector<std::string> toBeReturned;
+    toBeReturned.resize( lexical_cast<int>( GetData( "NumEntries" ) ) ); 
+    for ( auto it=m_mssData.begin(); it!=m_mssData.end(); ++it ){
+	if ( it->first.substr( 0, 2 ) == "Op" ){
+	    toBeReturned.at( lexical_cast<int>( it->first.substr( 2, 1 ) ) ) = it->second;
+	}
+    }
+    return toBeReturned;
+}
