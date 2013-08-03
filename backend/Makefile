@@ -28,8 +28,8 @@ all: directories $(OBJ_MAIN)
 	@echo '##################################################'
 
 test: directories $(OBJ_FILES) $(OBJ_TESTING_FILES)
-	@echo 'Linking the testing code!'
-	@$(foreach OBJ_THIS_TEST,$(OBJ_TESTING_FILES), $(CXX) $(LFLAGS) $(OBJ_FILES) $(OBJ_THIS_TEST) -o $(addprefix bin/,$(notdir $(OBJ_THIS_TEST:.o=.x))); echo '-> Testing case "$(notdir $(OBJ_THIS_TEST:.o=))" created!';)
+	@echo ' -> Linking the testing code!'
+	@$(foreach OBJ_THIS_TEST,$(OBJ_TESTING_FILES), $(CXX) $(LFLAGS) $(OBJ_FILES) $(OBJ_THIS_TEST) -o $(addprefix bin/,$(notdir $(OBJ_THIS_TEST:.o=.x))); echo ' --> Testing case "$(notdir $(OBJ_THIS_TEST:.o=))" created!';)
 
 obj/%.o: testing/%.cpp
 	$(CXX) $(RCXX) -MD -MF $(patsubst obj/%.o,dep/%.d,$@) -c -o $@ $<
