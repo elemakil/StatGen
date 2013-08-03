@@ -30,6 +30,10 @@ SessionDataParser::SessionDataParser( std::string sFileName ) : m_sFileName( sFi
     // and an empty vector will be returned
     try {
 	for ( size_t iEntry=0; iEntry<m_uiNumEntries; ++iEntry ){
+	    // the strategy is as follows:
+	    //  if multiple entries are found for the key (e.g. if the input string was 
+	    //  split because it wasn't enclose in inverted commas) all these entries are concatenated
+	    //  this is done using std::ostringstream and std::copy
 	    std::string sThisKey = "Entry:" + ToString( iEntry );
 	    std::vector<std::string> vsThisLine = m_Data.Get_Vector<std::string>( sThisKey );
 	
