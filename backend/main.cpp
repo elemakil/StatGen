@@ -7,6 +7,7 @@
 #include "Particle.hpp"
 #include "Ket.hpp"
 #include "TemplateParser.hpp"
+#include "CookieParser.hpp"
 #include "Utils.hpp"
 
 // maximum number of characters to read in one cycle
@@ -32,10 +33,19 @@ int main( int argc, char * argv [] ) {
 	config.ReadFromFile();
 	//Config::GetInstance()->ReadDataFromFile( "config.cfg" );
 	
+	char *cookie = getenv("HTTP_COOKIE");
+	CookieParser cp(cookie);
 	
+	std::string setCookieString;
 	
-	
-	
+	if (cp.IsKeyPresent("NumEntries"))
+	{
+		
+	}
+	else
+	{
+		setCookieString += "Set-Cookie:NumEntries=0;\n\r";
+	}
 	
 	
 	char *query_cstr = getenv("QUERY_STRING");
@@ -96,6 +106,9 @@ int main( int argc, char * argv [] ) {
 	/*tFile.open(config.Get<std::string>("Template_Header").c_str());
 	copyFiles(tFile, oFile);
 	tFile.close();*/
+	
+	std::cout << "Content-type: text/html\n\r";
+	std::cout << setCookieString << "\n\r";
 	
 	TemplateParser header(config.Get<std::string>("Template_Header"), config.Get<std::string>("LiveFileName"));
 	header.AddData("___VAR_KET___", ket);
