@@ -10,9 +10,10 @@ public:
 	int read(std::string ketstring);
 	void restruct();
 	void echo();
-	
-	
-private:
+	void distribute();
+
 	std::vector<std::vector<Ket> > parts;
 	std::string content;
+private:
+	
 };

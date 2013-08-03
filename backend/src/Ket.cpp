@@ -12,11 +12,12 @@ void Ket::echo()
 		std::cout << " { ";
 	for (int i = 0; i < parts.size(); i++)
 	{
+		if (i > 0)
+			std::cout << " + ";
 		for (int j = 0; j < parts[i].size(); j++)
 		{
 			parts[i][j].echo();
 		}
-		std::cout << " + ";
 	}
 		
 	if (parts.size())
@@ -26,9 +27,19 @@ void Ket::echo()
 	
 }
 
-void restruct()
+void Ket::distribute()
 {
+	for (int i = 0; i < parts.size(); i++)
+		for (int j = 0; j < parts[i].size(); j++)
+		{
+			parts[i][j].distribute();
+			
+			if (parts[i][j].parts[0].size()) // ggf noch mal spezifiziern
+			{
+			}
+		}
 	
+
 }
 
 int Ket::read(std::string ketstring)
@@ -38,6 +49,7 @@ int Ket::read(std::string ketstring)
 	
 	using namespace std;
 	int originallen = ketstring.length();
+	parts.clear();
 	parts.push_back(vector<Ket>());
 
 	while (ketstring != "")
@@ -68,8 +80,8 @@ int Ket::read(std::string ketstring)
 		else if (ketstring[0] == '+')
 		{
 			parts.push_back(vector<Ket>());
-			/*ketstring.erase(0, 1);
-			Ket neuket(true);
+			ketstring.erase(0, 1);
+			/*Ket neuket(true);
 			parts.push_back(neuket);*/
 		}
 		else if (ketstring[0] == ' ' || ketstring[0] == '\t' || ketstring[0] == '\n' || ketstring[0] == '\r')
