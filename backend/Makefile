@@ -1,5 +1,7 @@
 INC_DIR = inc/
 
+BINARY = ../StatGen.cgi
+
 CXX_FILES := $(wildcard src/*.cpp)
 OBJ_FILES := $(addprefix obj/,$(notdir $(CXX_FILES:.cpp=.o)))
 DEP_FILES := $(addprefix dep/,$(notdir $(OBJ_FILES:.o=.d)))
@@ -9,6 +11,7 @@ OBJ_TESTING_FILES := $(addprefix obj/,$(notdir $(CXX_TESTING_FILES:.cpp=.o)))
 DEP_TESTING_FILES := $(addprefix dep/,$(notdir $(OBJ_TESTING_FILES:.o=.d)))
 
 CFLAGS = -g -std=c++0x -Wl,--no-as-needed -Wall -I $(INC_DIR)
+LFLAGS = -Wl,--no-as-needed
 CXX = g++
 RCXX = $(CFLAGS) $(ROOTCFLAGS)
 
@@ -19,12 +22,12 @@ CXX_MAIN := $(CXX_FILES) main.cpp
 DEP_MAIN := $(DEP_FILES) dep/main.d
 
 all: directories $(OBJ_MAIN)
-	$(CXX) -Wl,--no-as-needed $(OBJ_MAIN) -o ../StatGen.cgi
+	$(CXX) $(LFLAGS) $(OBJ_MAIN) -o $(BINARY)
 	@echo '-> StatGen.cgi created!'
 
 test: directories $(OBJ_FILES) $(OBJ_TESTING_FILES)
 	@echo 'Linking the testing code!'
-	@$(foreach OBJ_THIS_TEST,$(OBJ_TESTING_FILES), $(CXX) -Wl,--no-as-needed $(OBJ_FILES) $(OBJ_THIS_TEST) -o $(addprefix bin/,$(notdir $(OBJ_THIS_TEST:.o=.x))); echo '-> Testing case "$(notdir $(OBJ_THIS_TEST:.o=))" created!';)
+	@$(foreach OBJ_THIS_TEST,$(OBJ_TESTING_FILES), $(CXX) $(LFLAGS) $(OBJ_FILES) $(OBJ_THIS_TEST) -o $(addprefix bin/,$(notdir $(OBJ_THIS_TEST:.o=.x))); echo '-> Testing case "$(notdir $(OBJ_THIS_TEST:.o=))" created!';)
 
 obj/%.o: testing/%.cpp
 	$(CXX) $(RCXX) -MD -MF $(patsubst obj/%.o,dep/%.d,$@) -c -o $@ $<
@@ -47,3 +50,7 @@ clean:
 	@rm -f obj/*.o
 	@rm -f dep/*.d
 	@rm -f *.x
+
+veryclean: clean
+	@rm -f bin/*.x
+	@rm -f $(BINARY)
