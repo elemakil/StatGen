@@ -15,7 +15,7 @@ void copyFiles(std::ifstream &in, std::ofstream &out)
 	while (in) {
 		char *readBuffer = new char[uiMaxChar]; // Store Data
 		in.read(readBuffer, uiMaxChar);
-		out << readBuffer << std::flush;	// Write that shit now!
+		std::cout << readBuffer << std::flush;	// Write that shit now!
 	}
 }
 
