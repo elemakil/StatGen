@@ -29,3 +29,19 @@ void Replace( std::string & target, const std::string & match, const std::string
     target.replace( startPos, match.length(), replacement );
     return;
 }
+
+void Split( const std::string & sInput, char cDelim, std::vector<std::string> & vsElements) {
+    std::stringstream ss( sInput );
+    std::string sItem;
+    while ( std::getline( ss, sItem, cDelim ) ) {
+        vsElements.push_back( sItem );
+    }
+    return;
+}
+
+
+std::vector<std::string> Split( const std::string & sInput, char cDelim ) {
+    std::vector<std::string> vsElements;
+    Split( sInput, cDelim, vsElements );
+    return vsElements;;
+}

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <sstream>
+#include <vector>
 
 // cast type U to type T
 // using std::stringstream
@@ -50,5 +51,23 @@ void ReplaceAll( std::string & target, const std::string & match, const std::str
  * @param replacement the string to be used in the replacement
  */
 void Replace( std::string & target, const std::string & match, const std::string & replacement );
+
+
+/*!
+ * @brief splits a std::string into atoms separated by a delimiter
+ * @param sInput the input std::string
+ * @param cDelim the delimiter character
+ * @param vsElements the std::vector of atomised items
+ * The tokenised items are appended to the vsElements vector
+ */
+void Split( const std::string & sInput, char cDelim, std::vector<std::string> & vsElements);
+
+/*!
+ * @brief splits a std::string into atoms separated by a delimiter
+ * @param sInput the input std::string
+ * @param cDelim the delimiter character
+ * @return a std::vector of the tokenised atoms
+ */
+std::vector<std::string> Split( const std::string & sInput, char cDelim );
 
 #endif // UTILS_H
