@@ -48,10 +48,10 @@ int main( int argc, char * argv [] ) {
 	if (!cpvec)
 		return -1;
 	
-	for (auto elem : *cpvec)
+	for (auto it = cpvec->begin(); it != cpvec->end(); it++)
 	{
 		cout << "\n";
-		elem->Print();
+		(*it)->Print();
 	}
 	
 	
