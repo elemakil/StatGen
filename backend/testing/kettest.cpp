@@ -7,7 +7,7 @@ int main()
 {
 	using namespace std;
 	Ket k;
-	k.read("|a>+|b>(|c>+|d>)+(|e>+|f>)(|g>+|h>)+|i>(|j>+(|k>+(|l>+|m>)))");
+	/*k.read("|a>+|b>(|c>+|d>)+(|e>+|f>)(|g>+|h>)+|i>(|j>+(|k>+(|l>+|m>)))");
 	k.echo();
 	k.distribute();
 	k.echo();
@@ -16,10 +16,10 @@ int main()
 	k.echo();
 	k.distribute();
 	k.echo();
-	cout << "\n";
+	cout << "\n";*/
 	
 	
-	vector<CompoundParticle *> *cpvec  = k.createCompounds("|uud>(|++->+|+-+>+|-++>)(|123>+|231>+|312>-|321>-|132>-|213>)");
+	vector<CompoundParticle *> *cpvec  = k.createCompounds("|uud>");
 	if (!cpvec)
 		return -1;
 	

@@ -40,24 +40,27 @@ int main( int argc, char * argv [] ) {
 	
 	char *query_cstr = getenv("QUERY_STRING");
 	if (!query_cstr)
-		query_cstr = "|uud>";
+		query_cstr = "ket=|uud>";
 
-	std::cout << getenv("QUERY_STRING") << std::flush;
-	std::string query(getenv("QUERY_STRING"));
+	//std::cout << query_cstr << std::flush;
+	
+	std::string query(query_cstr);
 	std::string ket = query.substr(4);
 	
 	Ket k;
 	vector<CompoundParticle *> *cpvec  = k.createCompounds(ket);
-	if (!cpvec)
-		return -1;
-	
-	for (auto it = cpvec->begin(); it != cpvec->end(); it++)
-	{
-		cout << "\n";
-		(*it)->Print();
+	if (cpvec)
+	{		
+		for (auto it = cpvec->begin(); it != cpvec->end(); it++)
+		{
+			cout << "\n";
+			(*it)->Print();
+		}
 	}
-
-	
+	else
+	{
+		std::cout << "NO PARTICLES FOUND" << std::flush;
+	}
 	
 	tFile.open(config.Get<string>("Template_Middle").c_str());
 	copyFiles(tFile, oFile);
