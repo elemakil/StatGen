@@ -92,9 +92,9 @@ int main( int argc, char * argv [] ) {
 	oFile.open(config.Get<std::string>("LiveFileName").c_str());
 	std::ifstream tFile;
 	
-	tFile.open(config.Get<std::string>("Template_Header").c_str());
+	/*tFile.open(config.Get<std::string>("Template_Header").c_str());
 	copyFiles(tFile, oFile);
-	tFile.close();
+	tFile.close();*/
 	
 	TemplateParser header(config.Get<std::string>("Template_Header"), config.Get<std::string>("LiveFileName"));
 	header.AddData("___VAR_KET___", ket);
