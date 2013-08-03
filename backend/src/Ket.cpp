@@ -32,23 +32,20 @@ std::vector<CompoundParticle *> *Ket::createCompounds(std::string ketstring)
 			for (uint s = 0; s < parts[i][j].content.size(); s++)
 			{
 				std::cout << parts[i][j].content[s];
-				switch(parts[i][j].content[s])
+				
+				//std::pair<QuantumNumber::aQuantumNumber,QuantumNumber::uQuantumNumber>
+				auto blub = QuantumNumber::GetFromChar(parts[i][j].content[s]);
+				switch(blub.first)
 				{
-					case 'u':
-						flavs.push_back(Flavour::Up);		break;
-					case 'd':
-						flavs.push_back(Flavour::Down);		break;
-					case '+':
-						spins.push_back(Spin::Up);			break;
-					case '-':
-						spins.push_back(Spin::Down);		break;
-					case '3':
-					case '0':
-						cols.push_back(Colour::Red);		break;
-					case '1':
-						cols.push_back(Colour::Green);		break;
-					case '2':
-						cols.push_back(Colour::Blue);		break;
+					case QuantumNumber::Flavour:
+						flavs.push_back(blub.second.Flavour);				break;
+					case QuantumNumber::Spin:
+						spins.push_back(blub.second.Spin);					break;
+					case QuantumNumber::Colour:
+						cols.push_back(blub.second.Colour);					break;
+					case QuantumNumber::Error:
+					default:
+						std::cerr << "MÖÖÖÖÖP MÖÖÖÖÖP MÖÖÖÖP";
 				}
 			}
 		}
