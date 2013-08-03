@@ -5,7 +5,7 @@ OBJ_FILES := $(addprefix obj/,$(notdir $(CXX_FILES:.cpp=.o)))
 
 DEP_FILES := $(addprefix dep/,$(notdir $(OBJ_FILES:.o=.d)))
 
-CFLAGS = -g -std=c++11 -Wl,--no-as-needed -Wall -I $(INC_DIR)
+CFLAGS = -g -std=c++0x -Wl,--no-as-needed -Wall -I $(INC_DIR)
 CXX = g++
 RCXX = $(CFLAGS) $(ROOTCFLAGS)
 
