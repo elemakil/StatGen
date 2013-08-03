@@ -1,20 +1,84 @@
 #include "Ket.hpp"
 
 #include <iostream>
+#include <algorithm>
+
+#include "Particle.hpp"
+
+typedef unsigned int uint;
 
 Ket::Ket() {}
 
 Ket::Ket(std::string ketstring) : content(ketstring) {}
 
+
+
+std::vector<CompoundParticle *> *Ket::createCompounds(std::string ketstring)
+{
+	if (ketstring != "")
+	{
+		read(ketstring);
+		distribute();
+	}
+	
+	std::vector<CompoundParticle *> *vec = new std::vector<CompoundParticle *>();
+	for (uint i = 0; i < parts.size(); i++)
+	{
+		std::vector<Flavour::aFlavour> flavs;
+		std::vector<Spin::aSpin> spins;
+		std::vector<Colour::aColour> cols;
+		for (uint j = 0; j < parts[i].size(); j++)
+		{
+			for (uint s = 0; s < parts[i][j].content.size(); s++)
+			{
+				std::cout << parts[i][j].content[s];
+				
+				//std::pair<QuantumNumber::aQuantumNumber,QuantumNumber::uQuantumNumber>
+				auto blub = QuantumNumber::GetFromChar(parts[i][j].content[s]);
+				switch(blub.first)
+				{
+					case QuantumNumber::Flavour:
+						flavs.push_back(blub.second.Flavour);				break;
+					case QuantumNumber::Spin:
+						spins.push_back(blub.second.Spin);					break;
+					case QuantumNumber::Colour:
+						cols.push_back(blub.second.Colour);					break;
+					case QuantumNumber::Error:
+					default:
+						std::cerr << "MÖÖÖÖÖP MÖÖÖÖÖP MÖÖÖÖP";
+				}
+			}
+		}
+		uint n = std::max(flavs.size(),std::max(spins.size(),cols.size()));
+		while (flavs.size() < n)
+			flavs.push_back(Flavour::Up);
+		while (spins.size() < n)
+			spins.push_back(Spin::NoSpin);
+		while (cols.size() < n)
+			cols.push_back(Colour::NoColour);
+		
+		CompoundParticle *cp = new CompoundParticle(n);
+		for (uint k = 0; k < n; k++)
+		{
+			Particle *p = new Particle(flavs[k], spins[k], cols[k], Handedness::NoHandedness);
+			cp->SetConstituent(k, *p);
+		}
+		vec->push_back(cp);
+		
+		std::cout << "\n";
+	}
+	return vec;
+}
+
 void Ket::echo()
 {
 	if (parts.size())
 		std::cout << " { ";
-	for (int i = 0; i < parts.size(); i++)
+	for (uint i = 0; i < parts.size(); i++)
 	{
 		if (i > 0)
 			std::cout << " + ";
-		for (int j = 0; j < parts[i].size(); j++)
+		for (uint j = 0; j < parts[i].size(); j++)
 		{
 			parts[i][j].echo();
 		}
@@ -29,33 +93,31 @@ void Ket::echo()
 
 void Ket::distribute()
 {
-	
 	using namespace std;
 	
-	cerr << "k";
+	//cerr << "k";
 	
-	
-	for (int i = 0; i < parts.size(); i++)
-		for (int j = 0; j < parts[i].size(); j++)
+	for (uint i = 0; i < parts.size(); i++)
+		for (uint j = 0; j < parts[i].size(); j++)
 		{
-			cerr << "1: " <<  i << " " << j << "\n";
+			//cerr << "1: " <<  i << " " << j << "\n";
 			parts[i][j].distribute();
 			
 			
 			
 			if (parts[i][j].parts.size() && parts[i][j].parts[0].size()) // ggf noch mal spezifiziern
 			{
-				for (int n = 0; n < parts[i][j].parts.size(); n++)
+				for (uint n = 0; n < parts[i][j].parts.size(); n++)
 				{
 					parts.push_back(vector<Ket>());
 					
-					for (int k = 0; k < j; k++)
+					for (uint k = 0; k < j; k++)
 						parts[parts.size()-1].push_back(parts[i][k]);
 					
-					for (int m = 0; m < parts[i][j].parts[n].size(); m++)
+					for (uint m = 0; m < parts[i][j].parts[n].size(); m++)
 						parts[parts.size()-1].push_back(parts[i][j].parts[n][m]);
 					
-					for (int k = j+1; k < parts[i].size(); k++)
+					for (uint k = j+1; k < parts[i].size(); k++)
 						parts[parts.size()-1].push_back(parts[i][k]);
 				}
 				parts.erase(parts.begin()+i);
@@ -85,7 +147,12 @@ int Ket::read(std::string ketstring)
 			ketstring.erase(0, 1);
 			Ket neuket;
 			int n = neuket.read(ketstring);
-			cerr  << "n:" << n << "\n";
+			if (!n)
+			{
+				parts.clear();
+				cerr  << "Unmatched parantheses..." << "\n";
+				break;
+			}
 			ketstring.erase(0, n);
 			parts[parts.size()-1].push_back(neuket);
 		}
