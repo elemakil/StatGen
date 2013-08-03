@@ -1,7 +1,6 @@
 #ifndef QUANTUMNUMBERS_H
 #define QUANTUMNUMBERS_H
 
-#include <string>
 #include <utility>
 
 namespace Flavour {
@@ -115,7 +114,7 @@ namespace QuantumNumber {
 	Handedness::aHandedness Handedness;
     };
 
-    std::pair<aQuantumNumber,uQuantumNumber> GetFromString( char cData );
+    std::pair<aQuantumNumber,uQuantumNumber> GetFromChar( char cData );
 }
 
 
