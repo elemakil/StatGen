@@ -10,6 +10,7 @@
 class AbstractParticle {
 public:
     virtual void Print( std::ostream & aStream = std::cout ) = 0;
+	virtual void HTMLPrint( std::ostream & aStream = std::cout ) = 0;
 };
 
 class Particle : public AbstractParticle {
@@ -26,6 +27,7 @@ public:
     Type::aType Type;
     
     virtual void Print( std::ostream & aStream = std::cout );
+	virtual void HTMLPrint( std::ostream & aStream = std::cout );
 };
 
 class CompoundParticle : public AbstractParticle {
@@ -38,6 +40,7 @@ public:
     virtual inline Particle & GetConstituent( unsigned int index );
     
     virtual void Print( std::ostream & aStream = std::cout );
+	virtual void HTMLPrint( std::ostream & aStream = std::cout );
     
     virtual float GetTotalSpin();
     virtual int GetTotalAngularMomentum();

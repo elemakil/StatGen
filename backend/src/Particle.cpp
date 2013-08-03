@@ -21,6 +21,11 @@ Particle::Particle( Flavour::aFlavour flavour, Spin::aSpin spin, Colour::aColour
     aStream << " |F,C,S,H> = |" << Flavour::Names[ Flavour ] << "," << Colour::Names[ Colour ] << "," << Spin::Names[ Spin ] << "," << Handedness::Names[ Handedness ] << "> (is a " << Type::Names[ Type ] << ")" << std::endl;
 }
 
+
+/* virtual */ void Particle::HTMLPrint( std::ostream & aStream /* = std::cout */ ){
+    aStream << "|" << Flavour::Names[ Flavour ] << "," << Colour::Names[ Colour ] << "," << Spin::Names[ Spin ] << ">"  << std::endl;
+}
+
 //////////////////////////////////////////////////////////////////////
 // COMPOUNTPARTICLE CLASS MEMBER FUNCTIONS
 //////////////////////////////////////////////////////////////////////
@@ -62,7 +67,16 @@ CompoundParticle::CompoundParticle( unsigned int uiNumConstituents ) : m_uiNumCo
 
 /* virtual */ void CompoundParticle::Print( std::ostream & aStream /* = std::cout */ ){
     for ( size_t iPart=0; iPart<m_uiNumConstituents; ++iPart ){
-	m_apConstituents[ iPart ].Print();
+	m_apConstituents[ iPart ].Print(aStream);
+    }
+}
+
+
+/* virtual */ void CompoundParticle::Print( std::ostream & aStream /* = std::cout */ ){
+    for ( size_t iPart=0; iPart<m_uiNumConstituents; ++iPart ){
+		if (i > 0)
+			aStream << "⊗";
+	m_apConstituents[ iPart ].HTMLPrint(aStream);
     }
 }
 

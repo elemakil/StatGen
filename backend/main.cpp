@@ -52,18 +52,6 @@ int main( int argc, char * argv [] ) {
 	
 	Ket k;
 	vector<CompoundParticle *> *cpvec  = k.createCompounds(ket);
-	if (cpvec)
-	{		
-		for (auto it = cpvec->begin(); it != cpvec->end(); it++)
-		{
-			cout << "\n";
-			(*it)->Print();
-		}
-	}
-	else
-	{
-		std::cout << "NO PARTICLES FOUND" << std::flush;
-	}
 	
 	//	std::ifstream tFile2;
 	//	std::cout << config.Get<std::string>("Template_Middle").c_str() << std::flush;
@@ -71,6 +59,21 @@ int main( int argc, char * argv [] ) {
 	tFile.open(config.Get<string>("Template_Middle").c_str());
 	copyFiles(tFile, oFile);
 	tFile.close();
+	
+	if (cpvec)
+	{		
+		for (auto it = cpvec->begin(); it != cpvec->end(); it++)
+		{
+			cout << "\n";
+			cout << "<b>";
+			(*it)->Print();
+			cout << "</b><br />";
+		}
+	}
+	else
+	{
+		std::cout << "NO PARTICLES FOUND" << std::flush;
+	}
 	
 	tFile.open(config.Get<string>("Template_Middle2").c_str());
 	copyFiles(tFile, oFile);
