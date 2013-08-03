@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 #include "Config.hpp"
 
@@ -34,6 +35,10 @@ int main( int argc, char * argv [] ) {
 	tFile.open(config.Get<string>("Template_Header").c_str());
 	copyFiles(tFile, oFile);
 	tFile.close();
+	
+	
+	std::cout << getenv("QUERY_STRING") << std::flush;
+	
 	
 	tFile.open(config.Get<string>("Template_Middle").c_str());
 	copyFiles(tFile, oFile);
