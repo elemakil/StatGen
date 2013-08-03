@@ -1,9 +1,9 @@
 #include "QuantumNumbers.hpp"
 
 const char * Flavour::Names [] = { "u", "d", "s", "c", "t", "b", "U", "D", "S", "C", "T", "B", 0 };
-const char * Spin::Names [] = { "↑", "↓", "NoSpin", 0 };
+const char * Spin::Names [] = { "↑", "↓", "↕", 0 };
 const char * Colour::Names [] = { "r", "g", "b", "w", "R", "G", "B", "W", "NoColour", 0 };
-const char * Handedness::Names [] = { "⇜", "⇝", "NoHandedness", 0 };
+const char * Handedness::Names [] = { "⇜", "⇝", "↭", 0 };
 const char * Type::Names [] = { "Fermion", "Boson", 0 };
 
 std::pair<QuantumNumber::aQuantumNumber,QuantumNumber::uQuantumNumber> QuantumNumber::GetFromChar( char cData ) {
