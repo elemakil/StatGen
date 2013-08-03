@@ -1,5 +1,7 @@
-#include "../inc/Ket.hpp"
 #include <iostream>
+
+#include "Ket.hpp"
+#include "Particle.hpp"
 
 int main()
 {
@@ -16,7 +18,19 @@ int main()
 	k.echo();
 	cout << "\n";
 	
-	k.read("|uud>(|++->+|+-+>+|-++>)(|123>+|231>+|312>-|321>-|132>-|213>)");
+	
+	vector<CompoundParticle *> *cpvec  = k.createCompounds("|uud>(|++->+|+-+>+|-++>)(|123>+|231>+|312>-|321>-|132>-|213>)");
+	if (!cpvec)
+		return -1;
+	
+	for (auto elem : *cpvec)
+	{
+		cout << "\n";
+		elem->Print();
+	}
+	
+	
+	k.read("|uud>(|++->+|+-+>+|-++>");
 	k.echo();
 	k.distribute();
 	k.echo();
