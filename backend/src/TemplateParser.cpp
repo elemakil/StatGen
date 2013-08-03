@@ -76,7 +76,6 @@ TemplateParser::TemplateParser( std::string sInFileName /* = "" */, std::string 
 	outFile << sThisLine << std::endl;
     }
     
-    inFile.flush();
     outFile.flush();
     inFile.close();
     outFile.close();
