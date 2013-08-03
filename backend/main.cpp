@@ -4,7 +4,8 @@
 #include <cstdlib>
 
 #include "Config.hpp"
-#include "Particle.hpp
+#include "Particle.hpp"
+#include "Ket.hpp"
 
 // maximum number of characters to read in one cycle
 const unsigned int uiMaxChar = 1024;
@@ -42,6 +43,7 @@ int main( int argc, char * argv [] ) {
 	std::string query(getenv("QUERY_STRING"));
 	std::string ket = query.substr(4);
 	
+	Ket k;
 	vector<CompoundParticle *> *cpvec  = k.createCompounds(ket);
 	if (!cpvec)
 		return -1;
