@@ -6,6 +6,8 @@ const char * Colour::Names [] = { "r", "g", "b", "w", "R", "G", "B", "W", "NoCol
 const char * Handedness::Names [] = { "⇜", "⇝", "↭", 0 };
 const char * Type::Names [] = { "Fermion", "Boson", 0 };
 
+const char * Colour::FileNames [] = { "red.png", "green.png", "blue.png", "white.png", "antired.png", "antigreen.png", "antiblue.png", "white.png", "white.png", 0 };
+
 std::pair<QuantumNumber::aQuantumNumber,QuantumNumber::uQuantumNumber> QuantumNumber::GetFromChar( char cData ) {
     QuantumNumber::uQuantumNumber data;
     QuantumNumber::aQuantumNumber info;
