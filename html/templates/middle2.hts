@@ -1,11 +1,2 @@
 
-		</div>
-		<br />
 
-		<div class="runderrahmen" id="ops">
-			<h3>Operators</h3>
-			<button type="button">Charge (C)</button>
-			<button type="button">Parity (P)</button>
-			<button type="button">Time reversal (T)</button>
-		</div>
-	</div>
