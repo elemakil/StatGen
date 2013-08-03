@@ -34,10 +34,10 @@ InputParser::InputParser( std::string sInput ) : m_sInput( sInput ){
     
     unsigned int uiNumOpenParens = 0;
     for ( size_t iChar=0; iChar<m_sInput.size(); ++iChar ){
-	if ( m_sInput[ iChar ] == "(" ){
+	if ( m_sInput[ iChar ] == '(' ){
 	    ++uiNumOpenParens;
 	}
-	if ( m_sInput[ iChar ] == ")" ){
+	if ( m_sInput[ iChar ] == ')' ){
 	    if ( uiNumOpenParens == 0 ){
 		std::cerr << "ERROR: Wrong order of parentheses!" << std::endl;
 		return false;

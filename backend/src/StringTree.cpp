@@ -23,11 +23,11 @@ StringTree::StringTree( std::string sInput ) : m_sInput( sInput ){
 }
 
 /* virtual */ void StringTree::DeleteChildren( StringTreeNode * target ){
-    if ( target->lChild != NULL ){
+   /* if ( target->lChild != NULL ){ // commented out to compile!
 	DeleteChildren( target->lChild );
     }
     if ( target->rChild != NULL ){
 	DeleteChildren( target->rChild );
-    }
+    }*/
     delete target;
 }
