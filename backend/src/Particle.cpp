@@ -72,9 +72,9 @@ CompoundParticle::CompoundParticle( unsigned int uiNumConstituents ) : m_uiNumCo
 }
 
 
-/* virtual */ void CompoundParticle::Print( std::ostream & aStream /* = std::cout */ ){
+/* virtual */ void CompoundParticle::HTMLPrint( std::ostream & aStream /* = std::cout */ ){
     for ( size_t iPart=0; iPart<m_uiNumConstituents; ++iPart ){
-		if (i > 0)
+		if (iPart > 0)
 			aStream << "⊗";
 	m_apConstituents[ iPart ].HTMLPrint(aStream);
     }
