@@ -72,6 +72,10 @@ int main( int argc, char * argv [] ) {
 	copyFiles(tFile, oFile);
 	tFile.close();
 	
+	tFile.open(config.Get<string>("Template_Middle2").c_str());
+	copyFiles(tFile, oFile);
+	tFile.close();
+	
 	tFile.open(config.Get<string>("Template_Footer").c_str());
 	copyFiles(tFile, oFile);
 	tFile.close();
