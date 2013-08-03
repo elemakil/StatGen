@@ -171,4 +171,6 @@ int main(){
     Operators::TransformT( part );
     std::cout << "T: ";
     part.Print();
+    
+    
 }
