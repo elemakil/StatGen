@@ -34,12 +34,16 @@ public:
     virtual ~CompoundParticle();
     
     virtual void SetConstituent( unsigned int index, const Particle & particle );
+    virtual inline const Particle & ReadConstituent( unsigned int index );
+    virtual inline Particle & GetConstituent( unsigned int index );
     
     virtual void Print( std::ostream & aStream = std::cout );
     
     virtual float GetTotalSpin();
     virtual int GetTotalAngularMomentum();
     virtual bool IsColourNeutral();
+    
+    virtual inline unsigned int GetNumConstituents() const { return m_uiNumConstituents; }
     
     friend void Operators::TransformC( CompoundParticle & particle );
     friend void Operators::TransformP( CompoundParticle & particle );
