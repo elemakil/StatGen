@@ -23,7 +23,14 @@ Particle::Particle( Flavour::aFlavour flavour, Spin::aSpin spin, Colour::aColour
 
 
 /* virtual */ void Particle::HTMLPrint( std::ostream & aStream /* = std::cout */ ){
-    aStream << "|" << Flavour::Names[ Flavour ] << "," << Colour::Names[ Colour ] << "," << Spin::Names[ Spin ] << "&gt;"  << std::endl;
+    aStream << "|" << Flavour::Names[ Flavour ];
+	if (Colour==Colour::NoColour) 
+		aStream << "," << Colour::Names[ Colour ];
+	if (Spin==Colour::NoSpin) 
+		aStream << "," << Spin::Names[ Spin ];
+	if (Handedness==Colour::NoHandedness) 
+		aStream << "," << Handedness::Names[ Handedness ];
+	aStream << "&gt;"  << std::endl;
 }
 
 //////////////////////////////////////////////////////////////////////
