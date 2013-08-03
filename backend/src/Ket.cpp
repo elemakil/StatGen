@@ -85,6 +85,7 @@ int Ket::read(std::string ketstring)
 			ketstring.erase(0, 1);
 			Ket neuket;
 			int n = neuket.read(ketstring);
+			cerr  << "n:" << n << "\n";
 			ketstring.erase(0, n);
 			parts[parts.size()-1].push_back(neuket);
 		}
@@ -108,6 +109,11 @@ int Ket::read(std::string ketstring)
 			ketstring.erase(0, 1);
 			/*Ket neuket(true);
 			parts.push_back(neuket);*/
+		}
+		else if (ketstring[0] == '-')
+		{
+			parts.push_back(vector<Ket>());
+			ketstring.erase(0, 1);
 		}
 		else if (ketstring[0] == ' ' || ketstring[0] == '\t' || ketstring[0] == '\n' || ketstring[0] == '\r')
 		{

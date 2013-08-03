@@ -50,12 +50,7 @@ div.right {
 
 div.left,
 div.right {
-	width:150px;
-	border: 4px #4444ff groove;
-  background-color: #4444ff;
-  border-radius: 20px;
-  padding:5px;
-  
+	width:200px;
 }
   
 div.middle {
@@ -63,7 +58,7 @@ div.middle {
 }
 
 div.top {
-	height:40px;
+	height:44px;
 	width:100%;
 	position:fixed;
 	top:0;
@@ -72,39 +67,76 @@ div.top {
 	z-index:1;
 	padding:2px;
 	color:white;
-	font-size:20pt;
+	font-size:12pt;
 }
 div.top input {
 	width:600px;
+	margin:0px;
 }
 
 div.top button, div.top input, div.top select {
-	font-size:20pt;
+	font-size:16pt;
 	background-color: #bbbbbb;
 	border:none;
-	height:36px;
+	height:35px;
 	padding:0px;
 	margin:2px;
 }
 
-div.top button
+div.runderrahmen {
+  border: 4px #4444ff groove;
+  background-color: #4444ff;
+  border-radius: 20px;
+  padding:5px;
+  margin-bottom:15px;
+}
+
+
+div.top button, div.bottom button
 {
+	font-size:16pt;
+	position:relative;
+	top:1px;
+	height:36px;
+	padding:6px;
+	margin:2px;
 	color: white;
 	border: 1px black solid;
+}
+
+#ops button
+{
+	font-size:16pt;
+	height:38px;
+	padding:6px;
+	margin:2px;
+	color: white;
+	border: 1px black solid;
+	border-radius: 10px;
+}
+
+div.bottom button
+{
+	padding:2px 10px;
+	height:25px;
+	font-size:12pt;
+	background-color: #0000ff;
 }
 
 div.top button.home
 {
 	position: fixed;
-	right:0px;
+	top:3px;
+	right:5px;
 	color:white;
-	background-color: black;
+	/*background-color: black;*/
 }
 
 div.top select{
-	height:32px;
+	height:25px;
+	font-size: 16px;
+	
 }
-
 
 div.topspacer {
 	height:40px;
@@ -113,11 +145,19 @@ div.topspacer {
 div.bottom {
 	position:fixed;
 	bottom:0px;
-	height:40px;
+	height:32px;
 	width:100%;
 	left:0px;
 	background-color: #007;
 	clear:both;
+}
+
+.gr {
+	color:gray;
+}
+
+h3{
+	margin:3px;
 }
 
 </style>
@@ -126,40 +166,73 @@ div.bottom {
 <body>
 	<!--h1 align="center">Zygentoma&nbsp;&nbsp;&nbsp;&nbsp;<img src="_zygentoma.png" alt="Zygentoma" /></h1-->
 	<div class="top">
+	<form action="">
 <select>
-   <option value="volvo">Select a hadron</option>
-   <option value="saab">Proton (p)</option>
-   <option value="mercedes">Neutron (n)</option>
-   <option value="audi">Pion (π+)</option>
-   <option value="audi">Pion (π-)</option>
-   <option value="audi">Pion (π0)</option>
+   <option value="none" class="gr">Select a hadron...</option>
+   <option value="none" class="gr">Frequently used:</option>
+   <option value="p">Proton (p)</option>
+   <option value="n">Neutron (n)</option>
+   <option value="pip">Pion (π+)</option>
+   <option value="pin">Pion (π-)</option>
+   <option value="pim">Pion (π0)</option>
+   <option value="none" class="gr">Mesons:</option>
+   <option value="none" class="gr">Baryons:</option>
  </select>
+
+ or enter 
  <input type="text" name="ket" value="|uud>" />
- <button type="button">GO</button>
- <button type="button" class="home">home</button></div>
+ <button type="submit">go</button>
+ <button type="reset">reset</button>
+ </form>
+ <form action="">
+ <button type="submit" class="home">home</button>
+ </form>
+ </div>
+ 
 	<div class="topspacer"></div>
 	
-	
 	<div class="left">
+	<div class="runderrahmen">
+	<div class="runderrahmen">
+		Transformation history
+	</div>
 		saflldsöafk<br />
 		saflldsöafk<br />
 	</div>
+	</div>
 	<div class="middle">
-		<div class="umkreis" style="float:left;">
+		<div class="umkreis">
 			<div class="kreis" style="position:relative">
 				<img src="../graphics/particles/red.png" style="position:absolute;top:0px;left:60px;"/>
 				<img src="../graphics/particles/green.png" style="position:absolute;top:104px;left:0px;" />
 				<img src="../graphics/particles/blue.png"  style="position:absolute;top:104px;left:120px;" />
 			</div>
 		</div>
+		<br />
+
+		<div class="runderrahmen" id="ops">
+			<h3>Operatoren</h3>
+			<button type="button">Charge (C)</button>
+			<button type="button">Parity (P)</button>
+			<button type="button">Time reversal (T)</button>
+		</div>
+		
 	</div>
 	<div class="right">
-		Operatoren
+	<div class="runderrahmen">
+	<div class="runderrahmen">
+		General Info
+	</div>
+		saflldsöafk<br />
+		saflldsöafk<br />
+	</div>
 	</div>
 
 	
-	<div class="bottom">
-	test
+	<div class="bottom" style="text-align:center">
+	<button type="button">Catalogue [PDG]</button>
+	<button type="button" style="margin-left:100px;">Info</button>
+	<button type="button" style="margin-left:100px;">Impressum</button>
 	</div>
 </body>
 </html>
