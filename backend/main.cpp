@@ -8,13 +8,16 @@
 #include "Ket.hpp"
 
 // maximum number of characters to read in one cycle
-const unsigned int uiMaxChar = 1024;
+const unsigned int uiMaxChar = 1;
+char readBuffer[uiMaxChar+1]; // Store Data
+
 
 void copyFiles(std::ifstream &in, std::ofstream &out)
 {
+  readBuffer[uiMaxChar] = 0;
 	while (in) {
-		char *readBuffer = new char[uiMaxChar]; // Store Data
 		in.read(readBuffer, uiMaxChar);
+		//readBuffer[len] = 0;
 		std::cout << readBuffer << std::flush;	// Write that shit now!
 	}
 }
@@ -30,11 +33,11 @@ int main( int argc, char * argv [] ) {
 	// setup the template file ifstream
 	// and live file ofstream
 	std::ofstream oFile;
-	oFile.open(config.Get<string>("LiveFileName").c_str());
+	oFile.open(config.Get<std::string>("LiveFileName").c_str());
 	
 	std::ifstream tFile;
 	
-	tFile.open(config.Get<string>("Template_Header").c_str());
+	tFile.open(config.Get<std::string>("Template_Header").c_str());
 	copyFiles(tFile, oFile);
 	tFile.close();
 	
@@ -62,6 +65,9 @@ int main( int argc, char * argv [] ) {
 		std::cout << "NO PARTICLES FOUND" << std::flush;
 	}
 	
+	//	std::ifstream tFile2;
+	//	std::cout << config.Get<std::string>("Template_Middle").c_str() << std::flush;
+	//	tFile2.open("html/templates/middle.hts");
 	tFile.open(config.Get<string>("Template_Middle").c_str());
 	copyFiles(tFile, oFile);
 	tFile.close();
