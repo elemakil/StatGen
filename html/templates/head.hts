@@ -200,7 +200,7 @@ h3{
 		
 			or enter
 		
-			<input type="text" name="ket" value="$___ket___$" />
+			<input type="text" name="ket" value="$___VAR_KET___$" />
 			<button type="submit">go</button>
 			<button type="reset">reset</button>
 		</form>
