@@ -1,4 +1,5 @@
 #include "Operators.hpp"
+
 #include "Particle.hpp"
 
 namespace Operators {
@@ -34,4 +35,19 @@ namespace Operators {
 	}
     }
 
+    void SwapSpin( Particle & firstParticle, Particle & secondParticle ){
+	std::swap( firstParticle.Spin, secondParticle.Spin );
+    }
+    
+    void SwapColour( Particle & firstParticle, Particle & secondParticle ){
+	std::swap( firstParticle.Colour, secondParticle.Colour );
+    }
+    
+    void SwapFlavour( Particle & firstParticle, Particle & secondParticle ){
+	std::swap( firstParticle.Flavour, secondParticle.Flavour );
+    }
+    
+    void SwapHandedness( Particle & firstParticle, Particle & secondParticle ){
+	std::swap( firstParticle.Handedness, secondParticle.Handedness );
+    }
 }
