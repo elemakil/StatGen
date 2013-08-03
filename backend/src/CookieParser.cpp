@@ -24,6 +24,7 @@ CookieParser::CookieParser( char * cookies ){
     for ( auto it=m_mssData.begin(); it!=m_mssData.end(); ++it ){
 	aStream << "<!-- \"" << it->first << "\" -> \"" << it->second << "\" -->" << std::endl;
     }
+    aStream.flush();
 }
 
 /* virtual */ std::vector<std::string> CookieParser::GetOperations(){
