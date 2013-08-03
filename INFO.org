@@ -1,0 +1,34 @@
+* Exchange Format
+The Exchange between backend and frontend is to be done using simple /argv/ argument vector
+
+** The format of the argument vector is specified as follows:
+
+Units are formed in two succesively shrinking groups (listed in shrinking order):
+1. Objects enclosed in parentheses (i.e. "(" and ")") are structural units which are just syntactic sugar: they are used to make inputting data easier.
+   An object within parentheses can be expanded just as one would expand numbers, i.e.
+   #+begin_example
+	A(B+C) = AB + AC
+   #+end_example
+2. Objects in ket-notation, i.e. enclosed by "|" on the left-hand side and ">" on the right-hand side.
+   Within this object the elementary particles which form the state in question are given. This object has default values (specified by the frontend).
+   The object is comprised of three different groups, these three groups are separated by the "," (comma) sign. The different groups are:
+   - flavour :: The particle(s) flavour, i.e.
+                #+begin_example
+                flavour := { u, d, s, c, b, t, U, D, S, C, B, T }
+                #+end_example
+                where lower-case letters denote particles and upper-case letters denote anti-particles
+   - colour-charge :: The particle(s) charge, i.e.
+                #+begin_example
+                xcolour-charge := { r, g, b, R, G, B }
+                #+end_example
+                where lower-case letters denote colour charge and upper-case letters denote anti-colour
+   - spin :: The particle(s) spin, i.e.
+                #+begin_example
+                spin := { +, - }
+                #+end_example
+** Examples:
+*** |uud> denotes a proton with default colour-charges and spint
+*** |uud,rgb,++-> denotes a proton with colour( u_1 ) = r, spin( u_1 ) = up, colour( u_2 ) = r, spin( u_2 ) = up, colour( d ) = b and spin( d ) = down
+*** |dC,rR,+-> denotes a D0Bar Meson (one of the six possible configurations)
+                      
+                      
