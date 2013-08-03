@@ -36,19 +36,19 @@ template <> std::string ToString<std::string>( const std::string & input );
 
 
 /*!
- * @brief Replace all occurances from "from" by "to" in "target"
+ * @brief Replace all occurances from "match" by "replacement" in "target"
  * @param target the target std::string
- * @param from the original match
- * @param to the replacement
+ * @param match the original string
+ * @param replacement the string to be used in the replacement
  */
-void ReplaceAll( std::string & target, const std::string & from, const std::string & to );
+void ReplaceAll( std::string & target, const std::string & match, const std::string & replacement );
 
 /*!
- * @brief Replace first occurance of "from" by "to" in std::string "target"
+ * @brief Replace first occurance of "match" by "replacement" in std::string "target"
  * @param target the target std::string
- * @param from the original match
- * @param to the replacement
+ * @param match the original string
+ * @param replacement the string to be used in the replacement
  */
-void Replace( std::string & target, const std::string & from, const std::string & to );
+void Replace( std::string & target, const std::string & match, const std::string & replacement );
 
 #endif // UTILS_H

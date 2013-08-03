@@ -9,23 +9,23 @@ template <> std::string ToString<std::string>( const std::string & input ){
     return input;
 }
 
-void ReplaceAll( std::string & target, const std::string & from, const std::string & to ) {
-    if ( from.empty() ){
+void ReplaceAll( std::string & target, const std::string & match, const std::string & replacement ) {
+    if ( match.empty() ){
         return;
     }
-    size_t start_pos = 0;
-    while ( ( start_pos = target.find( from, start_pos ) ) != std::string::npos ) {
-        target.replace( start_pos, from.length(), to );
-        start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
+    size_t startPos = 0;
+    while ( ( startPos = target.find( match, startPos ) ) != std::string::npos ) {
+        target.replace( startPos, match.length(), replacement );
+        startPos += replacement.length();
     }
 }
 
 
-void Replace( std::string & target, const std::string & from, const std::string & to ) {
-    size_t start_pos = target.find( from );
-    if ( start_pos == std::string::npos ){
+void Replace( std::string & target, const std::string & match, const std::string & replacement ) {
+    size_t startPos = target.find( match );
+    if ( startPos == std::string::npos ){
 	return;
     }
-    target.replace( start_pos, from.length(), to );
+    target.replace( startPos, match.length(), replacement );
     return;
 }
