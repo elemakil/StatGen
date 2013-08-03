@@ -108,7 +108,7 @@ int main( int argc, char * argv [] ) {
 	tFile.close();*/
 	
 	std::cout << "Content-type: text/html\n\r";
-	std::cout << setCookieString << "\n\r";
+	std::cout << setCookieString << "\n\r" << std::flush;
 	
 	TemplateParser header(config.Get<std::string>("Template_Header"), config.Get<std::string>("LiveFileName"));
 	header.AddData("___VAR_KET___", ket);
