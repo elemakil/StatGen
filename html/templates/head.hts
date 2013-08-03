@@ -173,36 +173,33 @@ h3{
 </head>
 <body>
 	<div class="top">
-	
-		<select id="particlemenu">
-			<option value="none" class="gr">Select a hadron...</option>
-			<option value="none" class="gr">Frequently used:</option>
-			<option value="?ket=|uud>">Proton (p)</option>
-			<option value="?ket=|udd>">Neutron (n)</option>
-			<option value="?ket=|Du>">Pion (π+)</option>
-			<option value="?ket=|Ud>">Pion (π-)</option>
-			<option value="?ket=|Uu>+|Dd>">Pion (π0)</option>
-			<option value="none" class="gr">Mesons:</option>
-			<option value="none" class="gr">Baryons:</option>
-		</select>
-
-		<script type="text/javascript">
-
-			var selectmenu=document.getElementById("particlemenu")
-			selectmenu.onchange=function()
-			{
-				var chosenoption=this.options[this.selectedIndex]
-				if (chosenoption.value!="none")
-				{
-					//window.open(chosenoption.value, "", "")
-					alert(chosenoption.value)
-					window.location.href=chosenoption.value
-				}
-			}
-		</script>
-	
-		or enter
 		<form action="">
+			<select id="particlemenu">
+				<option value="none" class="gr">Select a hadron...</option>
+				<option value="none" class="gr">Frequently used:</option>
+				<option value="?ket=|uud>">Proton (p)</option>
+				<option value="?ket=|udd>">Neutron (n)</option>
+				<option value="?ket=|Du>">Pion (π+)</option>
+				<option value="?ket=|Ud>">Pion (π-)</option>
+				<option value="?ket=|Uu>+|Dd>">Pion (π0)</option>
+				<option value="none" class="gr">Mesons:</option>
+				<option value="none" class="gr">Baryons:</option>
+			</select>
+
+			<script type="text/javascript">
+				var selectmenu=document.getElementById("particlemenu")
+				selectmenu.onchange=function()
+				{
+					var chosenoption=this.options[this.selectedIndex]
+					if (chosenoption.value!="none")
+					{
+						window.location.href=chosenoption.value
+					}
+				}
+			</script>
+		
+			or enter
+		
 			<input type="text" name="ket" value="|uud>" />
 			<button type="submit">go</button>
 			<button type="reset">reset</button>
