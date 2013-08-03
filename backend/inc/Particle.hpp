@@ -4,6 +4,7 @@
 #include <ostream>
 
 #include "QuantumNumbers.hpp"
+#include "Operators.hpp"
 
 class AbstractParticle {
 public:
@@ -37,8 +38,11 @@ public:
     
     virtual float GetTotalSpin();
     virtual int GetTotalAngularMomentum();
-    
     virtual bool IsColourNeutral();
+    
+    friend void Operators::TransformC( CompoundParticle & particle );
+    friend void Operators::TransformP( CompoundParticle & particle );
+    friend void Operators::TransformT( CompoundParticle & particle );
 private:
     unsigned int m_uiNumConstituents;
     Particle * m_apConstituents;

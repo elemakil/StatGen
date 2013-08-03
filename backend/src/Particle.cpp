@@ -110,4 +110,3 @@ CompoundParticle::CompoundParticle( unsigned int uiNumConstituents ) : m_uiNumCo
 	return false;
     }
 }
-
