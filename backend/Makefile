@@ -1,5 +1,4 @@
 INC_DIR = inc/
-
 BINARY = ../StatGen.cgi
 
 CXX_FILES := $(wildcard src/*.cpp)
