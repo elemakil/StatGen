@@ -34,6 +34,8 @@ int main( int argc, char * argv [] ) {
 	//Config::GetInstance()->ReadDataFromFile( "config.cfg" );
 	
 	char *cookie = getenv("HTTP_COOKIE");
+	if (!cookie)
+		cookie = "";
 	CookieParser cp(cookie);
 	
 	std::string setCookieString;
