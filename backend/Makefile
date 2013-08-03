@@ -16,8 +16,8 @@ CXX_MAIN := $(CXX_FILES) main.cpp
 DEP_MAIN := $(DEP_FILES) dep/main.d
 
 all: directories $(OBJ_MAIN)
-	$(CXX) -Wl,--no-as-needed $(OBJ_MAIN) -o main.x
-	@echo '-> main.x created!'
+	$(CXX) -Wl,--no-as-needed $(OBJ_MAIN) -o ../StatGen.cgi
+	@echo '-> StatGen.cgi created!'
 
 obj/%.o: src/%.cpp
 	$(CXX) $(RCXX) -MD -MF $(patsubst obj/%.o,dep/%.d,$@) -c -o $@ $<

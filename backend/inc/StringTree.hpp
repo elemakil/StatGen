@@ -15,9 +15,14 @@ enum StringTreeLevel {
 
 struct StringTreeNode {
     StringTreeNode * Parent;
+    
     size_t PartStart;
     size_t PartEnd;
-    std::vector<StringTreeNode*> Children;
+    
+    std::string Combine;
+    
+    StringTreeNode * lChild;
+    StringTreeNode * rChild;
 };
 
     
