@@ -101,13 +101,13 @@ int main( int argc, char * argv [] ) {
 	header.AddData("___VAR_KET___", ket);
 	header.PerformReplacement();
 	
-	if ( cpvec && ! cpvec.empty() ){
-	    if ( cpvec.at( 0 ).GetNumConstituents() >= 2 && cpvec.at( 0 ).GetNumConstituents() <= 5 ){
-		std::string sImageTemplateFile = config.Get<std::string>( "QuarkFilePrefix" ) + ToString( cpvec.at( 0 ).GetNumConstituents() ) + ".hts";
+	if ( cpvec && ! cpvec->empty() ){
+	    if ( cpvec->at( 0 )->GetNumConstituents() >= 2 && cpvec->at( 0 )->GetNumConstituents() <= 5 ){
+		std::string sImageTemplateFile = config.Get<std::string>( "QuarkFilePrefix" ) + ToString( cpvec->at( 0 )->GetNumConstituents() ) + ".hts";
 		TemplateParser image( sImageTemplateFile, config.Get<std::string>( "LiveFileName" ) );
-		for ( size_t iPart=0; iPart<cpvec.at( 0 ).GetNumConstituents(); ++iPart ){
+		for ( size_t iPart=0; iPart<cpvec->at( 0 )->GetNumConstituents(); ++iPart ){
 		    std::string sKey = "___c" + ToString( iPart ) + "___";
-		    std::string sFileName = config.Get<std::string>( "ParticlePicturePath" ) + Colour::FileNames[ cpvec.at( 0 ).ReadConstituent( iPart ).Colour ];
+		    std::string sFileName = config.Get<std::string>( "ParticlePicturePath" ) + Colour::FileNames[ cpvec->at( 0 )->ReadConstituent( iPart ).Colour ];
 		    image.AddData( sKey, sFileName );
 		}
 		image.PerformReplacement();
