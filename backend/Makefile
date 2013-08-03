@@ -22,7 +22,10 @@ DEP_MAIN := $(DEP_FILES) dep/main.d
 
 all: directories $(OBJ_MAIN)
 	$(CXX) $(LFLAGS) $(OBJ_MAIN) -o $(BINARY)
-	@echo '-> StatGen.cgi created!'
+	@echo ''
+	@echo '##################################################'
+	@echo '#          -> StatGen.cgi created!               #'
+	@echo '##################################################'
 
 test: directories $(OBJ_FILES) $(OBJ_TESTING_FILES)
 	@echo 'Linking the testing code!'
