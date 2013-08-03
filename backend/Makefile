@@ -48,8 +48,8 @@ clean:
 	@rm -f *~
 	@rm -f obj/*.o
 	@rm -f dep/*.d
-	@rm -f *.x
 
 veryclean: clean
+	@rm -f *.x
 	@rm -f bin/*.x
 	@rm -f $(BINARY)
