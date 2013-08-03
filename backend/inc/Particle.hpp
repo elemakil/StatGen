@@ -2,6 +2,7 @@
 #define PARTICLE_H
 
 #include <ostream>
+#include <iostream>
 
 #include "QuantumNumbers.hpp"
 #include "Operators.hpp"
