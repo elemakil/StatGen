@@ -26,9 +26,9 @@ Particle::Particle( Flavour::aFlavour flavour, Spin::aSpin spin, Colour::aColour
     aStream << "|" << Flavour::Names[ Flavour ];
 	if (Colour==Colour::NoColour) 
 		aStream << "," << Colour::Names[ Colour ];
-	if (Spin==Colour::NoSpin) 
+	if (Spin==Spin::NoSpin) 
 		aStream << "," << Spin::Names[ Spin ];
-	if (Handedness==Colour::NoHandedness) 
+	if (Handedness==Handedness::NoHandedness) 
 		aStream << "," << Handedness::Names[ Handedness ];
 	aStream << "&gt;"  << std::endl;
 }
