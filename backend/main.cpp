@@ -43,7 +43,7 @@ int main( int argc, char * argv [] ) {
 	
 	char *query_cstr = getenv("QUERY_STRING");
 	if (!query_cstr)
-		query_cstr = "ket=|uud>";
+		query_cstr = (char*)"ket=|uud>";
 
 	//std::cout << query_cstr << std::flush;
 	
