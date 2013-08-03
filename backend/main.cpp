@@ -43,12 +43,41 @@ int main( int argc, char * argv [] ) {
 	
 	char *query_cstr = getenv("QUERY_STRING");
 	if (!query_cstr)
-		query_cstr = (char*)"ket=|uud>";
+	{
+		query_cstr = (char*)"ket=|uud>";	
+			//std::cout << "NOQUERY" << std::flush;
+	}
+	//std::cout << "TEST" << std::flush;
 
 	//std::cout << query_cstr << std::flush;
 	
-	std::string query(query_cstr);
-	std::string ket = query.substr(4);
+	std::string query(query_cstr), ket;
+	if (query.size() >= 7)
+		ket = query.substr(4);
+	else 
+		ket = "|udd>";
+	
+	int pos = ket.find('%');
+	while (pos >= 0)
+	{
+		if (ket.length() > pos + 2)
+		{
+			char c1 = ket[pos+1];
+			char c2 = ket[pos+2];
+			if (c1 < 60)
+				c1 -= 48;
+			else
+				c1 -= 55;
+			if (c2 < 60)
+				c2 -= 48;
+			else
+				c2 -= 55;
+			char c = c1*0x10+c2;
+			ket[pos] = c;
+			ket.erase(pos+1, 2);
+		}
+		pos = ket.find('%');	
+	}
 	
 	Ket k;
 	vector<CompoundParticle *> *cpvec  = k.createCompounds(ket);
@@ -67,7 +96,7 @@ int main( int argc, char * argv [] ) {
 			cout << "\n";
 			cout << "<b>";
 			(*it)->Print();
-			cout << "</b><br />";
+			cout << "</b><br /><br />";
 		}
 	}
 	else
