@@ -1,5 +1,3 @@
-Content-type: text/html
-
 <?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -26,12 +24,14 @@ div.redquark {
 	height: 182px;
 }
 
+
 div.umkreis {
   width: 300px;
   height: 300px;
-  padding: 50px;
+  padding: 50px 150px;
   border: 4px #000044 groove;
   background-color: #000044;
+  border-radius: 20px;
 }
 
 div.kreis {
@@ -45,20 +45,97 @@ div.left,
 div.middle,
 div.right {
   float:left;
-  width:150px;
+  margin:10px;
 }
+
+div.left,
+div.right {
+	width:200px;
+}
+  
 div.middle {
-	width:600px;
+
 }
 
 div.top {
-	height:40px;
+	height:44px;
 	width:100%;
 	position:fixed;
 	top:0;
 	left:0;
 	background-color: #007;
 	z-index:1;
+	padding:2px;
+	color:white;
+	font-size:12pt;
+}
+div.top input {
+	width:600px;
+	margin:0px;
+}
+
+div.top button, div.top input, div.top select {
+	font-size:16pt;
+	background-color: #bbbbbb;
+	border:none;
+	height:35px;
+	padding:0px;
+	margin:2px;
+}
+
+div.runderrahmen {
+  border: 4px #4444ff groove;
+  background-color: #4444ff;
+  border-radius: 20px;
+  padding:5px;
+  margin-bottom:15px;
+}
+
+
+div.top button, div.bottom button
+{
+	font-size:16pt;
+	position:relative;
+	top:1px;
+	height:36px;
+	padding:6px;
+	margin:2px;
+	color: white;
+	border: 1px black solid;
+}
+
+#ops button
+{
+	font-size:16pt;
+	height:38px;
+	padding:6px;
+	margin:2px;
+	color: white;
+	border: 1px black solid;
+	border-radius: 10px;
+}
+
+div.bottom button
+{
+	padding:2px 10px;
+	height:25px;
+	font-size:12pt;
+	background-color: #0000ff;
+}
+
+div.top button.home
+{
+	position: fixed;
+	top:3px;
+	right:5px;
+	color:white;
+	/*background-color: black;*/
+}
+
+div.top select{
+	height:25px;
+	font-size: 16px;
+	
 }
 
 div.topspacer {
@@ -68,11 +145,19 @@ div.topspacer {
 div.bottom {
 	position:fixed;
 	bottom:0px;
-	height:40px;
+	height:32px;
 	width:100%;
 	left:0px;
 	background-color: #007;
 	clear:both;
+}
+
+.gr {
+	color:gray;
+}
+
+h3{
+	margin:3px;
 }
 
 </style>
@@ -80,11 +165,38 @@ div.bottom {
 </head>
 <body>
 	<!--h1 align="center">Zygentoma&nbsp;&nbsp;&nbsp;&nbsp;<img src="_zygentoma.png" alt="Zygentoma" /></h1-->
-	<div class="top">test</div>
+	<div class="top">
+	<form action="">
+<select>
+   <option value="none" class="gr">Select a hadron...</option>
+   <option value="none" class="gr">Frequently used:</option>
+   <option value="p">Proton (p)</option>
+   <option value="n">Neutron (n)</option>
+   <option value="pip">Pion (π+)</option>
+   <option value="pin">Pion (π-)</option>
+   <option value="pim">Pion (π0)</option>
+   <option value="none" class="gr">Mesons:</option>
+   <option value="none" class="gr">Baryons:</option>
+ </select>
+
+ or enter 
+ <input type="text" name="ket" value="|uud>" />
+ <button type="submit">go</button>
+ <button type="reset">reset</button>
+ </form>
+ <form action="">
+ <button type="submit" class="home">home</button>
+ </form>
+ </div>
+ 
 	<div class="topspacer"></div>
 	
-	
 	<div class="left">
-		saflldsöafk<br />
-		saflldsöafk<br />
+		<div class="runderrahmen">
+			<div class="runderrahmen">
+				Transformation history
+			</div>
+			saflldsöafk<br />
+			saflldsöafk<br />
+		</div>
 	</div>

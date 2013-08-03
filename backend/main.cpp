@@ -4,6 +4,7 @@
 #include <cstdlib>
 
 #include "Config.hpp"
+#include "Particle.hpp
 
 // maximum number of characters to read in one cycle
 const unsigned int uiMaxChar = 1024;
@@ -13,7 +14,7 @@ void copyFiles(std::ifstream &in, std::ofstream &out)
 	while (in) {
 		char *readBuffer = new char[uiMaxChar]; // Store Data
 		in.read(readBuffer, uiMaxChar);
-		out << readBuffer;	// Write that shit!
+		out << readBuffer << std::flush;	// Write that shit now!
 	}
 }
 
@@ -38,6 +39,18 @@ int main( int argc, char * argv [] ) {
 	
 	
 	std::cout << getenv("QUERY_STRING") << std::flush;
+	std::string query(getenv("QUERY_STRING"));
+	std::string ket = query.substr(4);
+	
+	vector<CompoundParticle *> *cpvec  = k.createCompounds(ket);
+	if (!cpvec)
+		return -1;
+	
+	for (auto elem : *cpvec)
+	{
+		cout << "\n";
+		elem->Print();
+	}
 	
 	
 	tFile.open(config.Get<string>("Template_Middle").c_str());
