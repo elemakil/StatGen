@@ -39,15 +39,7 @@ int main( int argc, char * argv [] ) {
 	CookieParser cp(cookie);
 	
 	std::string setCookieString;
-	
-	if (cp.IsKeyPresent("NumEntries"))
-	{
-		
-	}
-	else
-	{
-		setCookieString += "Set-Cookie:NumEntries=0;\n\r";
-	}
+
 	
 	
 	char *query_cstr = getenv("QUERY_STRING");
@@ -95,7 +87,12 @@ int main( int argc, char * argv [] ) {
 	
 	
 	
+	int numentriesincookie = 0;
+	if (cp.IsKeyPresent("NumEntries"))
+		numentriesincookie = lexical_cast<int>(cp.GetData("NumEntries"));
 	
+	setCookieString += "Set-Cookie:NumEntries=" + ToString(numentriesincookie+1) + ";\n\r";
+	setCookieString += "Set-Cookie:Op0=" + ket + ";\n\r";
 	
 	
 	
