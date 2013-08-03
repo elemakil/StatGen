@@ -32,7 +32,7 @@ template <typename T> std::string ToString( const T & input ) {
     return ss.str();
 }
 
- template <> std::string ToString<std::string>( const std::string & input );
+template <> std::string ToString<std::string>( const std::string & input );
 
 
 /*!
@@ -43,5 +43,12 @@ template <typename T> std::string ToString( const T & input ) {
  */
 void ReplaceAll( std::string & target, const std::string & from, const std::string & to );
 
+/*!
+ * @brief Replace first occurance of "from" by "to" in std::string "target"
+ * @param target the target std::string
+ * @param from the original match
+ * @param to the replacement
+ */
+void Replace( std::string & target, const std::string & from, const std::string & to );
 
 #endif // UTILS_H

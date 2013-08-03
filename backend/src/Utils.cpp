@@ -19,3 +19,13 @@ void ReplaceAll( std::string & target, const std::string & from, const std::stri
         start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
     }
 }
+
+
+void Replace( std::string & target, const std::string & from, const std::string & to ) {
+    size_t start_pos = target.find( from );
+    if ( start_pos == std::string::npos ){
+	return;
+    }
+    target.replace( start_pos, from.length(), to );
+    return;
+}
