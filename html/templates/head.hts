@@ -172,31 +172,45 @@ h3{
 
 </head>
 <body>
-	<!--h1 align="center">Zygentoma&nbsp;&nbsp;&nbsp;&nbsp;<img src="_zygentoma.png" alt="Zygentoma" /></h1-->
 	<div class="top">
-	<form action="">
-<select>
-   <option value="none" class="gr">Select a hadron...</option>
-   <option value="none" class="gr">Frequently used:</option>
-   <option value="p">Proton (p)</option>
-   <option value="n">Neutron (n)</option>
-   <option value="pip">Pion (π+)</option>
-   <option value="pin">Pion (π-)</option>
-   <option value="pim">Pion (π0)</option>
-   <option value="none" class="gr">Mesons:</option>
-   <option value="none" class="gr">Baryons:</option>
- </select>
+	
+		<select id="particlemenu">
+			<option value="none" class="gr">Select a hadron...</option>
+			<option value="none" class="gr">Frequently used:</option>
+			<option value="?ket=|uud>">Proton (p)</option>
+			<option value="?ket=|udd>">Neutron (n)</option>
+			<option value="?ket=|Du>">Pion (π+)</option>
+			<option value="?ket=|Ud>">Pion (π-)</option>
+			<option value="?ket=|Uu>+|Dd>">Pion (π0)</option>
+			<option value="none" class="gr">Mesons:</option>
+			<option value="none" class="gr">Baryons:</option>
+		</select>
 
- or enter 
- <input type="text" name="ket" value="$___VAR_KET___$" />
- <button type="submit">go</button>
- <button type="reset">reset</button>
- </form>
- <form action="">
- <button type="submit" class="home">home</button>
- </form>
- </div>
- 
+		<script type="text/javascript">
+
+			var selectmenu=document.getElementById("particlemenu")
+			selectmenu.onchange=function()
+			{
+				var chosenoption=this.options[this.selectedIndex]
+				if (chosenoption.value!="none")
+				{
+					//window.open(chosenoption.value, "", "")
+					alert(chosenoption.value)
+					window.location.href=chosenoption.value
+				}
+			}
+		</script>
+	
+		or enter
+		<form action="">
+			<input type="text" name="ket" value="|uud>" />
+			<button type="submit">go</button>
+			<button type="reset">reset</button>
+		</form>
+		<form action="">
+			<button type="submit" class="home">home</button>
+		</form>
+	</div>
 	<div class="topspacer"></div>
 	
 	<div class="left">
