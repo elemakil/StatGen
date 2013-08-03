@@ -28,15 +28,17 @@ div.redquark {
 
 
 div.umkreis {
-  width: 300px;
-  height: 300px;
-  padding: 50px 150px;
+  
+  /*width: 300px;
+  height: 300px;*/
+  padding:10px;
   border: 4px #000044 groove;
   background-color: #000044;
   border-radius: 20px;
 }
 
 div.kreis {
+  margin: 20px 150px;
   width: 300px;
   height: 300px;
   border-radius: 150px;

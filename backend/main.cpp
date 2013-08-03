@@ -95,7 +95,7 @@ int main( int argc, char * argv [] ) {
 		{
 			cout << "\n";
 			cout << "<b>";
-			(*it)->Print();
+			(*it)->HTMLPrint();
 			cout << "</b><br /><br />";
 		}
 	}
