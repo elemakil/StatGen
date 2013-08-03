@@ -22,6 +22,7 @@ DEP_MAIN := $(DEP_FILES) dep/main.d
 
 all: directories $(OBJ_MAIN)
 	$(CXX) $(LFLAGS) $(OBJ_MAIN) -o $(BINARY)
+	@echo ''
 	@echo '##################################################'
 	@echo '#          -> StatGen.cgi created!               #'
 	@echo '##################################################'
