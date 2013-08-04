@@ -50,7 +50,7 @@ std::vector<CompoundParticle *> *Ket::createCompounds(std::string ketstring)
 						hands.push_back(blub.second.Handedness);					break;
 					case QuantumNumber::Error:
 					default:
-						std::cerr << "MÖÖÖÖÖP MÖÖÖÖÖP MÖÖÖÖP";
+						;//std::cerr << "MÖÖÖÖÖP MÖÖÖÖÖP MÖÖÖÖP";
 				}
 			}
 		}
@@ -157,7 +157,7 @@ int Ket::read(std::string ketstring)
 			if (!n)
 			{
 				parts.clear();
-				cout  << "Unmatched parantheses..." << "\n";
+				//cout  << "Unmatched parantheses..." << "\n";
 				return -1;
 			}
 			ketstring.erase(0, n);
@@ -195,7 +195,7 @@ int Ket::read(std::string ketstring)
 		}
 		else
 		{
-			cout << "Error parsing parameters.";// << ketstring;
+			//cout << "Error parsing parameters.";// << ketstring;
 			return 0;
 		}
 	}
