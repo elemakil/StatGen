@@ -123,9 +123,19 @@ int main( int argc, char * argv [] ) {
 		std::string sImageTemplateFile = config.Get<std::string>( "QuarkFilePrefix" ) + ToString( cpvec->at( 0 )->GetNumConstituents() ) + ".hts";
 		TemplateParser image( sImageTemplateFile, config.Get<std::string>( "LiveFileName" ) );
 		for ( size_t iPart=0; iPart<cpvec->at( 0 )->GetNumConstituents(); ++iPart ){
-		    std::string sKey = "___c" + ToString( iPart ) + "___";
-		    std::string sFileName = Colour::FileNames[ cpvec->at( 0 )->ReadConstituent( iPart ).Colour ];
-		    image.AddData( sKey, sFileName );
+		    std::string sKey;
+		    std::string sData;
+		    
+		    sKey = "___c" + ToString( iPart ) + "___";
+		    sData = Colour::FileNames[ cpvec->at( 0 )->ReadConstituent( iPart ).Colour ];
+		    image.AddData( sKey, sData );
+		    
+		    sKey = "___t" + ToString( iPart ) + "___";
+		    sData = Flavour::Names[ cpvec->at( 0 )->ReadConstituent( iPart ).Flavour ];
+		    if ( cpvec->at( 0 )->ReadConstituent( iPart ).Spin != Spin::NoSpin ){
+			sData += Spin::Names[ cpvec->at( 0 )->ReadConstituent( iPart ).Spin ];
+		    }
+		    image.AddData( sKey, sData );
 		}
 		image.PerformReplacement();
 	    }
