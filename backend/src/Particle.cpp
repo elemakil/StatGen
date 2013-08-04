@@ -24,13 +24,13 @@ Particle::Particle( Flavour::aFlavour flavour, Spin::aSpin spin, Colour::aColour
 
 /* virtual */ void Particle::HTMLPrint( std::ostream & aStream /* = std::cout */ ){
     aStream << "|" << Flavour::GetName( Flavour );
-	if (Colour!=Colour::NoColour) 
-		aStream << "," << Colour::Names[ Colour ];
-	if (Spin!=Spin::NoSpin) 
-		aStream << "," << Spin::Names[ Spin ];
-	if (Handedness!=Handedness::NoHandedness) 
-		aStream << "," << Handedness::Names[ Handedness ];
-	aStream << "&gt;"  << std::flush;
+    if (Colour!=Colour::NoColour) 
+	aStream << "," << Colour::Names[ Colour ];
+    if (Spin!=Spin::NoSpin) 
+	aStream << "," << Spin::Names[ Spin ];
+    if (Handedness!=Handedness::NoHandedness) 
+	aStream << "," << Handedness::Names[ Handedness ];
+    aStream << "&gt;"  << std::flush;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -62,8 +62,8 @@ CompoundParticle::CompoundParticle( unsigned int uiNumConstituents ) : m_uiNumCo
 
 /* virtual */ void CompoundParticle::HTMLPrint( std::ostream & aStream /* = std::cout */ ){
     for ( size_t iPart=0; iPart<m_uiNumConstituents; ++iPart ){
-		if (iPart > 0)
-			aStream << "⊗";
+	if (iPart > 0)
+	    aStream << "⊗";
 	m_apConstituents[ iPart ].HTMLPrint(aStream);
     }
 }
@@ -164,4 +164,36 @@ CompoundParticle::CompoundParticle( unsigned int uiNumConstituents ) : m_uiNumCo
     else {
 	return false;
     }
+}
+
+/* virtual */ std::string CompoundParticle::GetFlavours(){
+    std::string sReturn;
+    for ( size_t iPart=0; iPart<m_uiNumConstituents; ++iPart ){
+	sReturn += Flavour::GetName( m_apConstituents[ iPart ].Flavour );
+    }    
+    return sReturn;
+}
+
+/* virtual */ std::string CompoundParticle::GetColours(){
+    std::string sReturn;
+    for ( size_t iPart=0; iPart<m_uiNumConstituents; ++iPart ){
+	sReturn += Colour::Names[ m_apConstituents[ iPart ].Colour ];
+    }    
+    return sReturn;
+}
+
+/* virtual */ std::string CompoundParticle::GetSpins(){
+    std::string sReturn;
+    for ( size_t iPart=0; iPart<m_uiNumConstituents; ++iPart ){
+	sReturn += Spin::Names[ m_apConstituents[ iPart ].Spin ];
+    }    
+    return sReturn;
+}
+
+/* virtual */ std::string CompoundParticle::GetHandednesses(){
+    std::string sReturn;
+    for ( size_t iPart=0; iPart<m_uiNumConstituents; ++iPart ){
+	sReturn += Handedness::Names[ m_apConstituents[ iPart ].Handedness ];
+    }    
+    return sReturn;
 }

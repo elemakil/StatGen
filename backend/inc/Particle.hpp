@@ -47,6 +47,11 @@ public:
     virtual int GetTotalAngularMomentum();
     virtual bool IsColourNeutral();
     
+    virtual std::string GetFlavours();
+    virtual std::string GetColours();
+    virtual std::string GetSpins();
+    virtual std::string GetHandednesses();
+    
     virtual inline unsigned int GetNumConstituents() const { return m_uiNumConstituents; }
     
     friend void Operators::TransformC( CompoundParticle & particle );
