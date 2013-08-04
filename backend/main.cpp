@@ -207,7 +207,7 @@ int main( int argc, char * argv [] ) {
 	// read infile, size of read portion is defined by uiMaxChar
 
 	cp.Print();
-	
+	std::cout << "<!-- cokies: " << setCookieString << "\n\r" << " --->" << std::flush;
 
 	// dont foget to close that fstream file shit!
 	oFile.close();
