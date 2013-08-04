@@ -199,7 +199,22 @@ h3{
 				<option value="?ket=|Ud>|41>">Pion (π-)</option>
 				<option value="?ket=|Uu>|41>+|Dd>|41>">Pion (π0)</option>
 				<option value="none" class="gr">Mesons:</option>
+				<option value="?ket=|cD>|41>">D+ Meson</option>
+				<option value="?ket=|dC>|41>">D- Meson</option>
+				<option value="?ket=|cU>|41>">D0 Meson</option>
+				<option value="?ket=|uC>|41>">D0Bar Meson</option>
+				<option value="?ket=|uS>|41>">K+ Meson</option>
+				<option value="?ket=|sU>|41>">K- Meson</option>
+				<option value="?ket=|dS>|41>">K0 Meson</option>
+				<option value="?ket=|sU>|41>">K0Bar Meson</option>
 				<option value="none" class="gr">Baryons:</option>
+				<option value="?ket=|uus>|123>">Σ+</option>
+				<option value="?ket=|uds>|123>">Σ0</option>
+				<option value="?ket=|dds>|123>">Σ-</option>
+				<option value="?ket=|uds>|123>">Λ</option>
+				<option value="?ket=|uds>|123>">Λ</option>
+				<option value="?ket=|uss>|123>">Ξ0</option>
+				<option value="?ket=|dss>|123>">Ξ-</option>
 			</select>
 
 			<script type="text/javascript">
