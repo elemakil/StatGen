@@ -28,6 +28,8 @@ std::vector<CompoundParticle *> *Ket::createCompounds(std::string ketstring)
 		std::vector<Flavour::aFlavour> flavs;
 		std::vector<Spin::aSpin> spins;
 		std::vector<Colour::aColour> cols;
+		std::vector<Handedness::aHandedness> cols;
+		
 		for (uint j = 0; j < parts[i].size(); j++)
 		{
 			for (uint s = 0; s < parts[i][j].content.size(); s++)
@@ -44,24 +46,28 @@ std::vector<CompoundParticle *> *Ket::createCompounds(std::string ketstring)
 						spins.push_back(blub.second.Spin);					break;
 					case QuantumNumber::Colour:
 						cols.push_back(blub.second.Colour);					break;
+					case QuantumNumber::Handedness:
+						hands.push_back(blub.second.Handedness);					break;
 					case QuantumNumber::Error:
 					default:
 						std::cerr << "MÖÖÖÖÖP MÖÖÖÖÖP MÖÖÖÖP";
 				}
 			}
 		}
-		uint n = std::max(flavs.size(),std::max(spins.size(),cols.size()));
+		uint n = std::max(flavs.size(),std::max(spins.size(),std::max(cols.size(),hands.size())));
 		while (flavs.size() < n)
 			flavs.push_back(Flavour::Up);
 		while (spins.size() < n)
 			spins.push_back(Spin::NoSpin);
 		while (cols.size() < n)
 			cols.push_back(Colour::NoColour);
+		while (hands.size() < n)
+			hands.push_back(Handedness::NoHandedness);
 		
 		CompoundParticle *cp = new CompoundParticle(n);
 		for (uint k = 0; k < n; k++)
 		{
-			Particle *p = new Particle(flavs[k], spins[k], cols[k], Handedness::NoHandedness);
+			Particle *p = new Particle(flavs[k], spins[k], cols[k], hands[k]);
 			cp->SetConstituent(k, *p);
 		}
 		vec->push_back(cp);
