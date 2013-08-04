@@ -143,7 +143,14 @@ int main( int argc, char * argv [] ) {
 		    image.AddData( sKey, sData );
 		    
 		    sKey = "___t" + ToString( iPart ) + "___";
-		    sData = Flavour::UNames[ cpvec->at( 0 )->ReadConstituent( iPart ).Flavour ];
+		    sData = "";
+		    if ( static_cast<int>( cpvec->at( 0 )->ReadConstituent( iPart ).Flavour ) < 0 ){
+			sData = std::string( "<span style=\"test-decoration: overline;\">" );
+		    }
+		    sData += Flavour::UNames[ cpvec->at( 0 )->ReadConstituent( iPart ).Flavour ];
+		    if ( static_cast<int>( cpvec->at( 0 )->ReadConstituent( iPart ).Flavour ) < 0 ){
+			sData += std::string( "</span>" );
+		    }
 		    if ( cpvec->at( 0 )->ReadConstituent( iPart ).Spin != Spin::NoSpin ){
 			sData += Spin::Names[ cpvec->at( 0 )->ReadConstituent( iPart ).Spin ];
 		    }
