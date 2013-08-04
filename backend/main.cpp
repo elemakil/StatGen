@@ -118,8 +118,9 @@ int main( int argc, char * argv [] ) {
 	for (int i = 0; i < numentriesincookie; i++)
 	{
 		string b = cp.GetData("Op" + ToString(i));
+		string c = b;
 		ReplaceAll(b, ">", "&gt;");
-		history += b + "<br /><br />";
+		history +="<a href=\"?ket=" + c + "\">" +  b + "</a><br /><br />";
 	}
 	
 	
