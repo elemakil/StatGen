@@ -2,6 +2,7 @@
 #define QUANTUMNUMBERS_H
 
 #include <utility>
+#include <cmath>
 
 namespace Flavour {
     enum aFlavour {

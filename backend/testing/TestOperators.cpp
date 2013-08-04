@@ -8,64 +8,64 @@ int main(){
     Flavour::aFlavour flv;
     
     flv = Flavour::Up;
-    std::cout << "C |" << Flavour::Names[ flv ] << "> = ";
+    std::cout << "C |" << Flavour::GetName( flv ) << "> = ";
     SwitchFlavour( flv );
-    std::cout << "|" << Flavour::Names[ flv ] << ">" << std::endl;
+    std::cout << "|" << Flavour::GetName( flv ) << ">" << std::endl;
     
     flv = Flavour::Down;
-    std::cout << "C |" << Flavour::Names[ flv ] << "> = ";
+    std::cout << "C |" << Flavour::GetName( flv ) << "> = ";
     SwitchFlavour( flv );
-    std::cout << "|" << Flavour::Names[ flv ] << ">" << std::endl;
+    std::cout << "|" << Flavour::GetName( flv ) << ">" << std::endl;
     
     flv = Flavour::Strange;
-    std::cout << "C |" << Flavour::Names[ flv ] << "> = ";
+    std::cout << "C |" << Flavour::GetName( flv ) << "> = ";
     SwitchFlavour( flv );
-    std::cout << "|" << Flavour::Names[ flv ] << ">" << std::endl;
+    std::cout << "|" << Flavour::GetName( flv ) << ">" << std::endl;
     
     flv = Flavour::Charm;
-    std::cout << "C |" << Flavour::Names[ flv ] << "> = ";
+    std::cout << "C |" << Flavour::GetName( flv ) << "> = ";
     SwitchFlavour( flv );
-    std::cout << "|" << Flavour::Names[ flv ] << ">" << std::endl;
+    std::cout << "|" << Flavour::GetName( flv ) << ">" << std::endl;
     
     flv = Flavour::Top;
-    std::cout << "C |" << Flavour::Names[ flv ] << "> = ";
+    std::cout << "C |" << Flavour::GetName( flv ) << "> = ";
     SwitchFlavour( flv );
-    std::cout << "|" << Flavour::Names[ flv ] << ">" << std::endl;
+    std::cout << "|" << Flavour::GetName( flv ) << ">" << std::endl;
     
     flv = Flavour::Bottom;
-    std::cout << "C |" << Flavour::Names[ flv ] << "> = ";
+    std::cout << "C |" << Flavour::GetName( flv ) << "> = ";
     SwitchFlavour( flv );
-    std::cout << "|" << Flavour::Names[ flv ] << ">" << std::endl;
+    std::cout << "|" << Flavour::GetName( flv ) << ">" << std::endl;
     
     flv = Flavour::AntiUp;
-    std::cout << "C |" << Flavour::Names[ flv ] << "> = ";
+    std::cout << "C |" << Flavour::GetName( flv ) << "> = ";
     SwitchFlavour( flv );
-    std::cout << "|" << Flavour::Names[ flv ] << ">" << std::endl;
+    std::cout << "|" << Flavour::GetName( flv ) << ">" << std::endl;
     
     flv = Flavour::AntiDown;
-    std::cout << "C |" << Flavour::Names[ flv ] << "> = ";
+    std::cout << "C |" << Flavour::GetName( flv ) << "> = ";
     SwitchFlavour( flv );
-    std::cout << "|" << Flavour::Names[ flv ] << ">" << std::endl;
+    std::cout << "|" << Flavour::GetName( flv ) << ">" << std::endl;
     
     flv = Flavour::AntiStrange;
-    std::cout << "C |" << Flavour::Names[ flv ] << "> = ";
+    std::cout << "C |" << Flavour::GetName( flv ) << "> = ";
     SwitchFlavour( flv );
-    std::cout << "|" << Flavour::Names[ flv ] << ">" << std::endl;
+    std::cout << "|" << Flavour::GetName( flv ) << ">" << std::endl;
     
     flv = Flavour::AntiCharm;
-    std::cout << "C |" << Flavour::Names[ flv ] << "> = ";
+    std::cout << "C |" << Flavour::GetName( flv ) << "> = ";
     SwitchFlavour( flv );
-    std::cout << "|" << Flavour::Names[ flv ] << ">" << std::endl;
+    std::cout << "|" << Flavour::GetName( flv ) << ">" << std::endl;
     
     flv = Flavour::AntiTop;
-    std::cout << "C |" << Flavour::Names[ flv ] << "> = ";
+    std::cout << "C |" << Flavour::GetName( flv ) << "> = ";
     SwitchFlavour( flv );
-    std::cout << "|" << Flavour::Names[ flv ] << ">" << std::endl;
+    std::cout << "|" << Flavour::GetName( flv ) << ">" << std::endl;
     
     flv = Flavour::AntiBottom;
-    std::cout << "C |" << Flavour::Names[ flv ] << "> = ";
+    std::cout << "C |" << Flavour::GetName( flv ) << "> = ";
     SwitchFlavour( flv );
-    std::cout << "|" << Flavour::Names[ flv ] << ">" << std::endl;    
+    std::cout << "|" << Flavour::GetName( flv ) << ">" << std::endl;    
 
     std::cout << std::endl;
     

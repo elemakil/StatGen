@@ -147,7 +147,7 @@ int main( int argc, char * argv [] ) {
 		    if ( static_cast<int>( cpvec->at( 0 )->ReadConstituent( iPart ).Flavour ) < 0 ){
 			sData = std::string( "<span style=\"test-decoration: overline;\">" );
 		    }
-		    sData += Flavour::UNames[ cpvec->at( 0 )->ReadConstituent( iPart ).Flavour ];
+		    sData += Flavour::GetUName( cpvec->at( 0 )->ReadConstituent( iPart ).Flavour );
 		    if ( static_cast<int>( cpvec->at( 0 )->ReadConstituent( iPart ).Flavour ) < 0 ){
 			sData += std::string( "</span>" );
 		    }

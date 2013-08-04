@@ -11,12 +11,16 @@ const char * Colour::FileNames [] = { "red", "green", "blue", "white", "antired"
 
 const char * Flavour::GetName( int index ){
     if ( index < 0 ){
-	index = abs( index ) + 6;
+	index = std::abs( index ) + 6;
     }
+    return Flavour::Names[ index ];
 }
 
 const char * Flavour::GetUName( int index ){
-    
+    if ( index < 0 ){
+	index = std::abs( index ) + 6;
+    }
+    return Flavour::UNames[ index ];
 }
 
 std::pair<QuantumNumber::aQuantumNumber,QuantumNumber::uQuantumNumber> QuantumNumber::GetFromChar( char cData ) {
