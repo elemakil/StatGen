@@ -12,7 +12,6 @@
 
 body {
 	background-color: blue;
-	color: white;
 	color: #36454F;
 	font-family: Helvetica, sans-serif;
 	background-image:url('../graphics/back.png');
@@ -28,6 +27,21 @@ span.overlay
 {
 	font-size:30pt;color:black;
 }
+
+a
+{
+	font-weight:bold;
+	color:white;
+	text-decoration:none;
+}
+
+a:hover, a:active
+{
+	font-weight:normal;
+	color: #36454F;
+	text-decoration:none;
+}
+
 
 div.umkreis {
   
