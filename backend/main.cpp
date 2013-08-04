@@ -143,7 +143,7 @@ int main( int argc, char * argv [] ) {
 		    image.AddData( sKey, sData );
 		    
 		    sKey = "___t" + ToString( iPart ) + "___";
-		    sData = Flavour::Names[ cpvec->at( 0 )->ReadConstituent( iPart ).Flavour ];
+		    sData = Flavour::UNames[ cpvec->at( 0 )->ReadConstituent( iPart ).Flavour ];
 		    if ( cpvec->at( 0 )->ReadConstituent( iPart ).Spin != Spin::NoSpin ){
 			sData += Spin::Names[ cpvec->at( 0 )->ReadConstituent( iPart ).Spin ];
 		    }

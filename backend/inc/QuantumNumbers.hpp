@@ -21,6 +21,7 @@ namespace Flavour {
     };
     
     extern const char * Names [];
+    extern const char * UNames [];
 }
 
 // this function switches a flavour for its C conjugate flavour
