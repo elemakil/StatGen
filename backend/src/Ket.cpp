@@ -28,7 +28,7 @@ std::vector<CompoundParticle *> *Ket::createCompounds(std::string ketstring)
 		std::vector<Flavour::aFlavour> flavs;
 		std::vector<Spin::aSpin> spins;
 		std::vector<Colour::aColour> cols;
-		std::vector<Handedness::aHandedness> cols;
+		std::vector<Handedness::aHandedness> hands;
 		
 		for (uint j = 0; j < parts[i].size(); j++)
 		{
