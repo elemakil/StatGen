@@ -122,7 +122,7 @@ int main( int argc, char * argv [] ) {
 			{
 				if (it != cpvec->begin())
 					newket << "+";
-				TransformP(**it);
+				Operators::TransformP(**it);
 				(*it)->PrintShort(newket);
 			}
 			ket = newket.str();
