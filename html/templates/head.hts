@@ -58,7 +58,7 @@ div.kreis {
   width: 300px;
   height: 300px;
   border-radius: 150px;
-  background-color: #444444;/*#$___THEM_OVERAL_COLOR___$;*/
+  background-color: #$___THEM_OVERAL_COLOR___$;
 }
 
 div.left,
