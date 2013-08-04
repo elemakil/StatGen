@@ -103,7 +103,7 @@ CompoundParticle::CompoundParticle( unsigned int uiNumConstituents ) : m_uiNumCo
 
 /* virtual */ std::string CompoundParticle::GetAbsoluteColour(){
     if ( IsColourNeutral() ){
-	return "444444";
+	return std::string( "444444" );
     }
     else {
 	int hColour = 0;
