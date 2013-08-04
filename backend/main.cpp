@@ -182,6 +182,8 @@ int main( int argc, char * argv [] ) {
 	TemplateParser header(config.Get<std::string>("Template_Header"), config.Get<std::string>("LiveFileName"));
 	header.AddData("___VAR_KET___", ket);
 	header.AddData("___THEM_CONTENT___", history);
+	header.AddData("___THEM_OVERAL_COLOR___", cpvec->at( 0 )->GetAbsoluteColor);
+	
 	header.PerformReplacement();
 	
 	if ( cpvec && ! cpvec->empty() ){
