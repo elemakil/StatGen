@@ -97,7 +97,7 @@ int main( int argc, char * argv [] ) {
 		numentriesincookie = lexical_cast<int>(cp.GetData("NumEntries"));
 	
 	setCookieString += "Set-Cookie:NumEntries=" + ToString(numentriesincookie+1) + ";\n\r";
-	setCookieString += "Set-Cookie:Op0=" + ket + ";\n\r";
+	setCookieString += "Set-Cookie:Op" + ToString(numentriesincookie) +  "=" + ket + ";\n\r";
 	
 	
 	
