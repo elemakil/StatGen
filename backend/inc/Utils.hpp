@@ -4,6 +4,10 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include <cctype>
+#include <functional>
+#include <algorithm>
+#include <locale>
 
 // cast type U to type T
 // using std::stringstream
@@ -69,5 +73,23 @@ void Split( const std::string & sInput, char cDelim, std::vector<std::string> & 
  * @return a std::vector of the tokenised atoms
  */
 std::vector<std::string> Split( const std::string & sInput, char cDelim );
+
+
+// trim whitespace from left
+static inline std::string & lTrim( std::string & sInput ) {
+    sInput.erase( sInput.begin(), std::find_if( sInput.begin(), sInput.end(), std::not1( std::ptr_fun<int, int>( std::isspace ) ) ) );
+    return sInput;
+}
+
+// trim whitespace from right
+static inline std::string & rTrim( std::string & sInput ) {
+    sInput.erase( std::find_if( sInput.rbegin(), sInput.rend(), std::not1( std::ptr_fun<int, int>( std::isspace ) ) ).base(), sInput.end() );
+    return sInput;
+}
+
+// trim whitespace from both sides
+static inline std::string & Trim( std::string & sInput ) {
+    return lTrim( rTrim( sInput ) );
+}
 
 #endif // UTILS_H
