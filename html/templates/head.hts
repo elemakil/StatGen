@@ -193,11 +193,11 @@ h3{
 			<select id="particlemenu">
 				<option value="none" class="gr">Select a hadron...</option>
 				<option value="none" class="gr">Frequently used:</option>
-				<option value="?ket=|uud>">Proton (p)</option>
-				<option value="?ket=|udd>">Neutron (n)</option>
-				<option value="?ket=|Du>">Pion (π+)</option>
-				<option value="?ket=|Ud>">Pion (π-)</option>
-				<option value="?ket=|Uu>+|Dd>">Pion (π0)</option>
+				<option value="?ket=|uud>|123>">Proton (p)</option>
+				<option value="?ket=|udd>|123>">Neutron (n)</option>
+				<option value="?ket=|Du>|41>">Pion (π+)</option>
+				<option value="?ket=|Ud>|41>">Pion (π-)</option>
+				<option value="?ket=|Uu>|41>+|Dd>|41>">Pion (π0)</option>
 				<option value="none" class="gr">Mesons:</option>
 				<option value="none" class="gr">Baryons:</option>
 			</select>
@@ -214,7 +214,7 @@ h3{
 				}
 			</script>
 		
-			or enter
+			or enter a state
 		
 			<input type="text" name="ket" value="$___VAR_KET___$" />
 			<button type="submit">go</button>
