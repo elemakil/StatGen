@@ -30,7 +30,7 @@ Particle::Particle( Flavour::aFlavour flavour, Spin::aSpin spin, Colour::aColour
 		aStream << "," << Spin::Names[ Spin ];
 	if (Handedness!=Handedness::NoHandedness) 
 		aStream << "," << Handedness::Names[ Handedness ];
-	aStream << "&gt;"  << std::endl;
+	aStream << "&gt;"  << std::flush;
 }
 
 //////////////////////////////////////////////////////////////////////
