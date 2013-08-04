@@ -128,7 +128,7 @@ CompoundParticle::CompoundParticle( unsigned int uiNumConstituents ) : m_uiNumCo
 	    }
 	}
 	std::stringstream ss;
-	ss << std::hex << std::fixed << std::setprecision( 6 ) << hColour;
+	ss << std::hex << std::setw( 6 ) << std::setfill( '0' ) << hColour;
 	return ss.str();
     }
 }
