@@ -101,6 +101,37 @@ CompoundParticle::CompoundParticle( unsigned int uiNumConstituents ) : m_uiNumCo
     if ( bHasHandedness ) { aStream << "|" << sHandedness << ">"; }
 }
 
+/* virtual */ std::string CompoundParticle::GetAbsoluteColour(){
+    if ( IsColourNeutral() ){
+	return "444444";
+    }
+    else {
+	int hColour = 0;
+	for ( size_t iPart=0; iPart<m_uiNumConstituents; ++iPart ){
+	    if ( m_apConstituents[ iPart ].Colour == Colour::Red ){
+		hColour += 440000;
+	    }
+	    if ( m_apConstituents[ iPart ].Colour == Colour::Green ){
+		hColour += 004400;
+	    }
+	    if ( m_apConstituents[ iPart ].Colour == Colour::Blue ){
+		hColour += 000044;
+	    }
+	    if ( m_apConstituents[ iPart ].Colour == Colour::AntiRed ){
+		hColour += 004444;
+	    }
+	    if ( m_apConstituents[ iPart ].Colour == Colour::AntiGreen ){
+		hColour += 440044;
+	    }
+	    if ( m_apConstituents[ iPart ].Colour == Colour::AntiBlue ){
+		hColour += 444400;
+	    }
+	}
+	std::stringstream ss;
+	ss << std::hex << std::fixed << std::setprecision( 6 ) << hColour;
+	return ss.str();
+    }
+}
 
 
 /* virtual */ float CompoundParticle::GetTotalSpin(){

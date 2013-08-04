@@ -3,6 +3,8 @@
 
 #include <ostream>
 #include <iostream>
+#include <sstream>
+#include <iomanip>
 
 #include "QuantumNumbers.hpp"
 #include "Operators.hpp"
@@ -46,6 +48,8 @@ public:
     virtual float GetTotalSpin();
     virtual int GetTotalAngularMomentum();
     virtual bool IsColourNeutral();
+    
+    virtual std::string GetAbsoluteColour();
     
     virtual std::string GetFlavours();
     virtual std::string GetColours();
