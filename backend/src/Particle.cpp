@@ -80,7 +80,7 @@ CompoundParticle::CompoundParticle( unsigned int uiNumConstituents ) : m_uiNumCo
     
     for ( size_t iPart=0; iPart<m_uiNumConstituents; ++iPart ){
 	sFlavour += Flavour::GetName( m_apConstituents[ iPart ].Flavour );
-	sColour += Colour::Names[ m_apConstituents[ iPart ].Colour ];
+	sColour += Colour::KNames[ m_apConstituents[ iPart ].Colour ];
 	sSpin += Spin::Names[ m_apConstituents[ iPart ].Spin ];
 	sHandedness += Handedness::Names[ m_apConstituents[ iPart ].Handedness ];
 	

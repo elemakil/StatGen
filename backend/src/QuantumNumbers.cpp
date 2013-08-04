@@ -4,6 +4,7 @@ const char * Flavour::Names [] = { "d", "u", "s", "c", "b", "t", "D", "U", "S", 
 const char * Flavour::UNames [] = { "d", "u", "s", "c", "b", "t", "d", "u", "s", "c", "b", "t", 0 };
 const char * Spin::Names [] = { "↑", "↓", "↕", 0 };
 const char * Colour::Names [] = { "r", "g", "b", "w", "R", "G", "B", "W", "NoColour", 0 };
+const char * Colour::KNames [] = { "1", "2", "3", "0", "4", "5", "6", "7", "NoColour", 0 };
 const char * Handedness::Names [] = { "⇜", "⇝", "↭", 0 };
 const char * Type::Names [] = { "Fermion", "Boson", 0 };
 
