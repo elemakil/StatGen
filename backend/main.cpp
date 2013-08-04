@@ -69,7 +69,16 @@ int main( int argc, char * argv [] ) {
 		ket = "|uud>|123>";
 	
 	if (query.substr(0,5) == "action=" && numentriesincookie)
-		;
+	{
+		ket = cp.GetData("Op" + ToString(numentriesincookie-1));
+		if (query == "action=clear")
+		{
+			for (int i = numentriesincookie - 1; i >= 0; i--)
+				setCookieString += "Set-Cookie:Op" + ToString(i) + "=;\n\r";
+			numentriesincookie = 0;
+		}
+		
+	}
 	
 	int pos = ket.find('%');
 	while (pos >= 0)
