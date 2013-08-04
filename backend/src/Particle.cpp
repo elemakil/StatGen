@@ -177,7 +177,7 @@ CompoundParticle::CompoundParticle( unsigned int uiNumConstituents ) : m_uiNumCo
 /* virtual */ std::string CompoundParticle::GetColours(){
     std::string sReturn;
     for ( size_t iPart=0; iPart<m_uiNumConstituents; ++iPart ){
-	sReturn += Colour::Names[ m_apConstituents[ iPart ].Colour ];
+	sReturn += Colour::KNames[ m_apConstituents[ iPart ].Colour ];
     }    
     return sReturn;
 }
