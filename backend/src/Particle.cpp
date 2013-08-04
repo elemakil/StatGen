@@ -53,25 +53,6 @@ CompoundParticle::CompoundParticle( unsigned int uiNumConstituents ) : m_uiNumCo
     m_apConstituents[ index ] = particle;
 }
 
-/* virtual inline */ const Particle & CompoundParticle::ReadConstituent( unsigned int index ){
-    if ( index >= m_uiNumConstituents ){
-	std::cerr << "ERROR: Index " << index << " not known for this CompoundParticle!" << std::endl;
-	return m_apConstituents[ 0 ];
-    }
-    
-    return m_apConstituents[ index ];
-}
-
-/* virtual inline */ Particle & CompoundParticle::GetConstituent( unsigned int index ){
-    if ( index >= m_uiNumConstituents ){
-	std::cerr << "ERROR: Index " << index << " not known for this CompoundParticle!" << std::endl;
-	return m_apConstituents[ 0 ];
-    }
-    
-    return m_apConstituents[ index ];
-}
-
-
 /* virtual */ void CompoundParticle::Print( std::ostream & aStream /* = std::cout */ ){
     for ( size_t iPart=0; iPart<m_uiNumConstituents; ++iPart ){
 	m_apConstituents[ iPart ].Print(aStream);
