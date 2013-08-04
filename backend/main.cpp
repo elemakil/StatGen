@@ -114,8 +114,20 @@ int main( int argc, char * argv [] ) {
 	std::cout << "Content-type: text/html\n\r";
 	std::cout << setCookieString << "\n\r" << std::flush;
 	
+	string history;
+	for (int i = numentriesincookie - 1; i >= 0; i--)
+	{
+		string b = cp.GetData("Op" + ToString(i));
+		string c = b;
+		ReplaceAll(b, ">", "&gt;");
+		history +="<a href=\"?ket=" + c + "\">" +  b + "</a><br /><br />";
+	}
+	
+	
+	
 	TemplateParser header(config.Get<std::string>("Template_Header"), config.Get<std::string>("LiveFileName"));
 	header.AddData("___VAR_KET___", ket);
+	header.AddData("___THEM_CONTENT___", history);
 	header.PerformReplacement();
 	
 	if ( cpvec && ! cpvec->empty() ){

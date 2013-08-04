@@ -24,6 +24,10 @@ div.redquark {
 	height: 182px;
 }
 
+span.overlay
+{
+	font-size:30pt;color:black;
+}
 
 div.umkreis {
   
@@ -33,6 +37,7 @@ div.umkreis {
   border: 4px #000044 groove;
   background-color: #000044;
   border-radius: 12px;
+  opacity:0.9;
 }
 
 div.kreis {
@@ -213,8 +218,10 @@ h3{
 			<div class="runderrahmen">
 				Transformation history
 			</div>
-			saflldsöafk<br />
-			saflldsöafk<br />
+			<br />
+			$___THEM_CONTENT___$
+			<br />
+			<br />
 		</div>
 	</div>
 

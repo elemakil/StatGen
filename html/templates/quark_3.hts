@@ -1,3 +1,6 @@
 				<img src="../graphics/particles/$___c0___$.png" style="position:absolute;top:0px;left:60px;" />
+				<span class="overlay" style="position:absolute;top:70px;left:130px;">$___t0___$</span>
 				<img src="../graphics/particles/$___c1___$.png" style="position:absolute;top:104px;left:0px;" />
+				<span class="overlay" style="position:absolute;top:174px;left:70px;">$___t1___$</span>
 				<img src="../graphics/particles/$___c2___$.png"  style="position:absolute;top:104px;left:120px;" />
+				<span class="overlay" style="position:absolute;top:174px;left:190px;">$___t2___$</span>
