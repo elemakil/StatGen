@@ -200,18 +200,26 @@ int main( int argc, char * argv [] ) {
 			cout << "</b><br /><br />";
 		}
 	}
+	else if (query.substr(0,9) == "page=info")
+	{
+		TemplateParser info(config.Get<std::string>("Template_Info"), config.Get<std::string>("LiveFileName"));
+		info.PerformReplacement();
+	}
 	else
 	{
 		std::cout << "NO PARTICLES FOUND" << std::flush;
 	}
 	
-	tFile.open(config.Get<string>("Template_Middle2").c_str());
+/*	tFile.open(config.Get<string>("Template_Middle2").c_str());
 	copyFiles(tFile, oFile);
-	tFile.close();
+	tFile.close();*/
 	
-	tFile.open(config.Get<string>("Template_Footer").c_str());
+/*	tFile.open(config.Get<string>("Template_Footer").c_str());
 	copyFiles(tFile, oFile);
-	tFile.close();
+	tFile.close();*/
+	TemplateParser footer(config.Get<std::string>("Template_Footer"), config.Get<std::string>("LiveFileName"));
+	header.AddData("___SEARCH_ME___", "REPLACE ME");
+	footer.PerformReplacement();
 	// read infile, size of read portion is defined by uiMaxChar
 
 	cp.Print();
