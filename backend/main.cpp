@@ -166,12 +166,15 @@ int main( int argc, char * argv [] ) {
 	std::cout << setCookieString << "\n\r" << std::flush;
 	
 	string history;
-	for (int i = numentriesincookie - 1; i >= 0; i--)
+	for (int i = numentriesincookie - 1; i >= max(0,numentriesincookie-30); i--)
 	{
 		string b = cp.GetData("Op" + ToString(i));
 		string c = b;
 		ReplaceAll(b, ">", "&gt;");
 		history +="<a href=\"?ket=" + c + "\">" +  b + "</a><br /><br />";
+		
+		if (numentriesincookie > 30)
+			setCookieString += "Set-Cookie: Op" + ToString(numentriesincookie-30) + "=del; Expires=Thu, 01 Jan 1970 00:00:01 GMT;\n\r";
 	}
 	
 	
