@@ -69,24 +69,6 @@ int main( int argc, char * argv [] ) {
 	else 
 		ket = "|uud>|123>";
 	
-	DEEEEEBUG += query;
-	if (query.substr(0,7) == "action=" && numentriesincookie)
-	{
-		DEEEEEBUG += "1";
-		ket = cp.GetData("Op" + ToString(numentriesincookie-1));
-		if (query.substr(0,12) == "action=clear")
-		{
-			DEEEEEBUG += "2";
-			for (int i = numentriesincookie - 1; i >= 0; i--)
-			{
-				setCookieString += "Set-Cookie: Op" + ToString(i) + "=del; Expires=Thu, 01 Jan 1970 00:00:01 GMT;\n\r";
-				DEEEEEBUG += "2b";
-			}
-			numentriesincookie = 0;
-			DEEEEEBUG += "3";
-		}
-		
-	}
 	
 	int pos = ket.find('%');
 	while (pos >= 0)
@@ -113,13 +95,52 @@ int main( int argc, char * argv [] ) {
 	Ket k;
 	vector<CompoundParticle *> *cpvec  = k.createCompounds(ket);
 	
+	DEEEEEBUG += query;
+	if (query.substr(0,7) == "action=" && numentriesincookie)
+	{
+		DEEEEEBUG += "1";
+		ket = cp.GetData("Op" + ToString(numentriesincookie-1));
+		if (query.substr(0,12) == "action=clear")
+		{
+			DEEEEEBUG += "2";
+			for (int i = numentriesincookie - 1; i >= 0; i--)
+			{
+				setCookieString += "Set-Cookie: Op" + ToString(i) + "=del; Expires=Thu, 01 Jan 1970 00:00:01 GMT;\n\r";
+				DEEEEEBUG += "2b";
+			}
+			numentriesincookie = 0;
+			DEEEEEBUG += "3";
+		}
+		
+		
+		
+		
+		if (query.substr(0,13) == "action=parity")
+		{
+			std::stringstream newket;
+			for (auto it = cpvec->begin(); it != cpvec->end(); it++)
+			{
+				if (it != cpvec->begin())
+					newket << "+";
+				Operators::TransformP(**it);
+				(*it)->PrintShort(newket);
+			}
+			ket = newket.str();
+		}
+		
+	}
+	
+	
+	
 	
 	
 	
 
-	
-	setCookieString += "Set-Cookie:NumEntries=" + ToString(numentriesincookie+1) + ";\n\r";
-	setCookieString += "Set-Cookie:Op" + ToString(numentriesincookie) +  "=" + ket + ";\n\r";
+	if (query.substr(0,9) != "page=info")
+	{
+		setCookieString += "Set-Cookie:NumEntries=" + ToString(numentriesincookie+1) + ";\n\r";
+		setCookieString += "Set-Cookie:Op" + ToString(numentriesincookie) +  "=" + ket + ";\n\r";
+	}
 	
 	
 	
