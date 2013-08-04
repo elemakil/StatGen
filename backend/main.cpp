@@ -115,7 +115,7 @@ int main( int argc, char * argv [] ) {
 	std::cout << setCookieString << "\n\r" << std::flush;
 	
 	string history;
-	for (int i = 0; i < numentriesincookie; i++)
+	for (int i = numentriesincookie - 1; i >= 0; i--)
 	{
 		string b = cp.GetData("Op" + ToString(i));
 		string c = b;
