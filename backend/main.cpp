@@ -192,8 +192,9 @@ int main( int argc, char * argv [] ) {
 	
 	if (query.substr(0,9) == "page=info")
 	{
-		TemplateParser info(config.Get<std::string>("Template_Info"), config.Get<std::string>("LiveFileName"));
-		info.PerformReplacement();
+		tFile.open(config.Get<string>("Template_Info").c_str());
+		copyFiles(tFile, oFile);
+		tFile.close();
 	}
 	else if (cpvec)
 	{		
