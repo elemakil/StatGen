@@ -64,9 +64,12 @@ int main( int argc, char * argv [] ) {
 	
 	std::string query(query_cstr), ket;
 	
+	if (numentriesincookie)
+		ket = cp.GetData("Op" + ToString(numentriesincookie-1));
+	
 	if (query.substr(0,4) == "ket=" && query.size() >= 7)
 		ket = query.substr(4);
-	else if (numentriesincookie)
+	else if (!numentriesincookie)
 		ket = "|uud>|123>";
 	
 	
@@ -99,7 +102,6 @@ int main( int argc, char * argv [] ) {
 	if (query.substr(0,7) == "action=" && numentriesincookie)
 	{
 		DEEEEEBUG += "1";
-		ket = cp.GetData("Op" + ToString(numentriesincookie-1));
 		if (query.substr(0,12) == "action=clear")
 		{
 			DEEEEEBUG += "2";
@@ -115,24 +117,23 @@ int main( int argc, char * argv [] ) {
 		
 		
 		
-		if (query.substr(0,13) == "action=parity")
+		if (query.substr(0,13) == "action=parity" || query.substr(0,13) == "action=charge" || query.substr(0,11) == "action=time")
 		{
-			DEEEEEBUG += " into PARITY ! ";
 			std::stringstream newket;
 			for (auto it = cpvec->begin(); it != cpvec->end(); it++)
 			{
-				DEEEEEBUG += "124578";
 				if (it != cpvec->begin())
 					newket << "+";
-				DEEEEEBUG +=(*it)->GetFlavours()+ (*it)->GetColours();
-				
-				Operators::TransformC(**it);
+							
+				if (query.substr(0,13) == "action=parity")
+					Operators::TransformP(**it);
+				if (query.substr(0,13) == "action=charge")
+					Operators::TransformC(**it);
+				if (query.substr(0,11) == "action=time")
+					Operators::TransformT(**it);
 				(*it)->PrintShort(newket);
- 				DEEEEEBUG +=(*it)->GetFlavours()+ (*it)->GetColours();
-			}
-			DEEEEEBUG += ket + ":";
+ 			}
 			ket = newket.str();
-			DEEEEEBUG += ket;
 		}
 	}
 	
