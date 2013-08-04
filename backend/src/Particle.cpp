@@ -18,12 +18,12 @@ Particle::Particle( Flavour::aFlavour flavour, Spin::aSpin spin, Colour::aColour
 }
 
 /* virtual */ void Particle::Print( std::ostream & aStream /* = std::cout */ ){
-    aStream << " |F,C,S,H> = |" << Flavour::Names[ Flavour ] << "," << Colour::Names[ Colour ] << "," << Spin::Names[ Spin ] << "," << Handedness::Names[ Handedness ] << "> (is a " << Type::Names[ Type ] << ")" << std::endl;
+    aStream << " |F,C,S,H> = |" << Flavour::GetName( Flavour ) << "," << Colour::Names[ Colour ] << "," << Spin::Names[ Spin ] << "," << Handedness::Names[ Handedness ] << "> (is a " << Type::Names[ Type ] << ")" << std::endl;
 }
 
 
 /* virtual */ void Particle::HTMLPrint( std::ostream & aStream /* = std::cout */ ){
-    aStream << "|" << Flavour::Names[ Flavour ];
+    aStream << "|" << Flavour::GetName( Flavour );
 	if (Colour!=Colour::NoColour) 
 		aStream << "," << Colour::Names[ Colour ];
 	if (Spin!=Spin::NoSpin) 

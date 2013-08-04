@@ -1,13 +1,33 @@
 #include "QuantumNumbers.hpp"
 
-const char * Flavour::Names [] = { "u", "d", "s", "c", "t", "b", "U", "D", "S", "C", "T", "B", 0 };
-const char * Flavour::UNames [] = { "u", "d", "s", "c", "t", "b", "\u02C9u", "\u02C9d", "S", "C", "T", "B", 0 };
+const char * Flavour::Names [] = { "d", "u", "s", "c", "b", "t", "D", "U", "S", "C", "B", "T", 0 };
+const char * Flavour::UNames [] = { "d", "u", "s", "c", "b", "t", "d", "u", "s", "c", "b", "t", 0 };
 const char * Spin::Names [] = { "↑", "↓", "↕", 0 };
 const char * Colour::Names [] = { "r", "g", "b", "w", "R", "G", "B", "W", "NoColour", 0 };
 const char * Handedness::Names [] = { "⇜", "⇝", "↭", 0 };
 const char * Type::Names [] = { "Fermion", "Boson", 0 };
 
 const char * Colour::FileNames [] = { "red", "green", "blue", "white", "antired", "antigreen", "antiblue", "white", "white", 0 };
+
+const char * Flavour::GetName( int index ){
+    if ( index < 0 ){
+	index = ( ( index < 0 ) ? ( -1 * index ) : index ) + 5;
+    }
+    else {
+	index -= 1;
+    }
+    return Flavour::Names[ index ];
+}
+
+const char * Flavour::GetUName( int index ){
+    if ( index < 0 ){
+	index = ( ( index < 0 ) ? ( -1 * index ) : index ) + 5;
+    }
+    else {
+	index -= 1;
+    }
+    return Flavour::UNames[ index ];
+}
 
 std::pair<QuantumNumber::aQuantumNumber,QuantumNumber::uQuantumNumber> QuantumNumber::GetFromChar( char cData ) {
     QuantumNumber::uQuantumNumber data;

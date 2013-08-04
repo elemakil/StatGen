@@ -2,31 +2,35 @@
 #define QUANTUMNUMBERS_H
 
 #include <utility>
+#include <cmath>
 
 namespace Flavour {
     enum aFlavour {
-	Up,
-	Down,
-	Strange,
-	Charm,
-	Top,
-	Bottom,
+	Down = 1,
+	Up = 2,
+	Strange = 3,
+	Charm = 4,
+	Bottom = 5,
+	Top = 6,
     
-	AntiUp,
-	AntiDown,
-	AntiStrange,
-	AntiCharm,
-	AntiTop,
-	AntiBottom
+	AntiDown = -1,
+	AntiUp = -2,
+	AntiStrange = -3,
+	AntiCharm = -4,
+	AntiBottom = -5,
+	AntiTop = -6
     };
     
     extern const char * Names [];
     extern const char * UNames [];
+    
+    const char * GetName( int index );
+    const char * GetUName( int index );
 }
 
 // this function switches a flavour for its C conjugate flavour
 inline void SwitchFlavour( Flavour::aFlavour & flavour ){
-    flavour = static_cast<Flavour::aFlavour>( ( static_cast<int>( flavour ) + 6 ) % 12 );    
+    flavour = static_cast<Flavour::aFlavour>( -1 * static_cast<int>( flavour ) );    
 }
 
 namespace Spin {
