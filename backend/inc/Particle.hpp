@@ -27,7 +27,7 @@ public:
     Type::aType Type;
     
     virtual void Print( std::ostream & aStream = std::cout );
-	virtual void HTMLPrint( std::ostream & aStream = std::cout );
+    virtual void HTMLPrint( std::ostream & aStream = std::cout );
 };
 
 class CompoundParticle : public AbstractParticle {
@@ -40,7 +40,7 @@ public:
     virtual inline Particle & GetConstituent( unsigned int index );
     
     virtual void Print( std::ostream & aStream = std::cout );
-	virtual void HTMLPrint( std::ostream & aStream = std::cout );
+    virtual void HTMLPrint( std::ostream & aStream = std::cout );
     
     virtual float GetTotalSpin();
     virtual int GetTotalAngularMomentum();
@@ -55,5 +55,24 @@ private:
     unsigned int m_uiNumConstituents;
     Particle * m_apConstituents;
 };
+
+/* virtual inline */ const Particle & CompoundParticle::ReadConstituent( unsigned int index ){
+    if ( index >= m_uiNumConstituents ){
+	std::cerr << "ERROR: Index " << index << " not known for this CompoundParticle!" << std::endl;
+	return m_apConstituents[ 0 ];
+    }
+    
+    return m_apConstituents[ index ];
+}
+
+/* virtual inline */ Particle & CompoundParticle::GetConstituent( unsigned int index ){
+    if ( index >= m_uiNumConstituents ){
+	std::cerr << "ERROR: Index " << index << " not known for this CompoundParticle!" << std::endl;
+	return m_apConstituents[ 0 ];
+    }
+    
+    return m_apConstituents[ index ];
+}
+
 
 #endif // PARTICLE_H
