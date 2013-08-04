@@ -124,7 +124,7 @@ int main( int argc, char * argv [] ) {
 				DEEEEEBUG += "124578";
 				if (it != cpvec->begin())
 					newket << "+";
-				Operators::TransformP(**it);
+				Operators::TransformC(**it);
 				(*it)->PrintShort(newket);
 			}
 			DEEEEEBUG += ket + ":";
