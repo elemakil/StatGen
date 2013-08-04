@@ -37,7 +37,7 @@ div.umkreis {
   border: 4px #000044 groove;
   background-color: #000044;
   border-radius: 12px;
-  opacity:0.95;
+  opacity:0.9;
 }
 
 div.kreis {
