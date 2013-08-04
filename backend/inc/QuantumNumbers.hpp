@@ -22,6 +22,9 @@ namespace Flavour {
     
     extern const char * Names [];
     extern const char * UNames [];
+    
+    const char * GetName( int index );
+    const char * GetUName( int index );
 }
 
 // this function switches a flavour for its C conjugate flavour
