@@ -70,11 +70,11 @@ int main( int argc, char * argv [] ) {
 		ket = "|uud>|123>";
 	
 	DEEEEEBUG += query;
-	if (query.substr(0,5) == "action=" && numentriesincookie)
+	if (query.substr(0,7) == "action=" && numentriesincookie)
 	{
 		DEEEEEBUG += "1";
 		ket = cp.GetData("Op" + ToString(numentriesincookie-1));
-		if (query == "action=clear")
+		if (query.substr(0,12) == "action=clear")
 		{
 			DEEEEEBUG += "2";
 			for (int i = numentriesincookie - 1; i >= 0; i--)
