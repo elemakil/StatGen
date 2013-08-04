@@ -145,7 +145,7 @@ int main( int argc, char * argv [] ) {
 		    sKey = "___t" + ToString( iPart ) + "___";
 		    sData = "";
 		    if ( static_cast<int>( cpvec->at( 0 )->ReadConstituent( iPart ).Flavour ) < 0 ){
-			sData = std::string( "<span style=\"test-decoration: overline;\">" );
+			sData = std::string( "<span style=\"text-decoration: overline;\">" );
 		    }
 		    sData += Flavour::GetUName( cpvec->at( 0 )->ReadConstituent( iPart ).Flavour );
 		    if ( static_cast<int>( cpvec->at( 0 )->ReadConstituent( iPart ).Flavour ) < 0 ){
