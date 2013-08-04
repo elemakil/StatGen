@@ -214,12 +214,12 @@ int main( int argc, char * argv [] ) {
 	copyFiles(tFile, oFile);
 	tFile.close();*/
 	
-/*	tFile.open(config.Get<string>("Template_Footer").c_str());
+	tFile.open(config.Get<string>("Template_Footer").c_str());
 	copyFiles(tFile, oFile);
-	tFile.close();*/
-	TemplateParser footer(config.Get<std::string>("Template_Footer"), config.Get<std::string>("LiveFileName"));
+	tFile.close();
+	/*TemplateParser footer(config.Get<std::string>("Template_Footer"), config.Get<std::string>("LiveFileName"));
 	header.AddData("___SEARCH_ME___", "REPLACE ME");
-	footer.PerformReplacement();
+	footer.PerformReplacement();*/
 	// read infile, size of read portion is defined by uiMaxChar
 
 	cp.Print();
