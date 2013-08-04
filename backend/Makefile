@@ -1,6 +1,5 @@
 INC_DIR = inc/
-BINARY = ../StatGen.cgi
-BINARY_LINK = ../index.cgi
+BINARY = ../index.cgi
 
 CXX_FILES := $(wildcard src/*.cpp)
 OBJ_FILES := $(addprefix obj/,$(notdir $(CXX_FILES:.cpp=.o)))
@@ -21,11 +20,11 @@ OBJ_MAIN := $(OBJ_FILES) obj/main.o
 CXX_MAIN := $(CXX_FILES) main.cpp
 DEP_MAIN := $(DEP_FILES) dep/main.d
 
-all: directories links $(OBJ_MAIN)
+all: directories $(OBJ_MAIN)
 	$(CXX) $(LFLAGS) $(OBJ_MAIN) -o $(BINARY)
 	@echo ''
 	@echo '##################################################'
-	@echo '#          -> StatGen.cgi created!               #'
+	@echo '#          -> index.cgi created!                 #'
 	@echo '##################################################'
 
 test: directories $(OBJ_FILES) $(OBJ_TESTING_FILES)
@@ -46,9 +45,6 @@ directories:
 	@${MKDIR_P} dep/
 	@${MKDIR_P} bin/
 	@${MKDIR_P} data/
-
-links:
-	@ln -f $(notdir $(BINARY)) $(BINARY_LINK)
 
 -include $(DEP_MAIN)
 
