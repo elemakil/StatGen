@@ -41,6 +41,7 @@ public:
     
     virtual void Print( std::ostream & aStream = std::cout );
     virtual void HTMLPrint( std::ostream & aStream = std::cout );
+    virtual void PrintShort( std::ostream & aStream = std::cout );
     
     virtual float GetTotalSpin();
     virtual int GetTotalAngularMomentum();
