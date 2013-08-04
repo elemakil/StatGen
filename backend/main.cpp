@@ -162,8 +162,7 @@ int main( int argc, char * argv [] ) {
 	copyFiles(tFile, oFile);
 	tFile.close();*/
 	
-	std::cout << "Content-type: text/html\n\r";
-	std::cout << setCookieString << "\n\r" << std::flush;
+	
 	
 	string history;
 	for (int i = numentriesincookie - 1; i >= max(0,numentriesincookie-30); i--)
@@ -177,7 +176,8 @@ int main( int argc, char * argv [] ) {
 			setCookieString += "Set-Cookie: Op" + ToString(numentriesincookie-30) + "=del; Expires=Thu, 01 Jan 1970 00:00:01 GMT;\n\r";
 	}
 	
-	
+	std::cout << "Content-type: text/html\n\r";
+	std::cout << setCookieString << "\n\r" << std::flush;
 	
 	TemplateParser header(config.Get<std::string>("Template_Header"), config.Get<std::string>("LiveFileName"));
 	header.AddData("___VAR_KET___", ket);
