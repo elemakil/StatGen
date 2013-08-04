@@ -1,31 +1,32 @@
 
-
 		</div>
 		<br />
 
 		<div class="runderrahmen" id="ops">
 			<h3>Operators</h3>
-			<button type="button">Charge (C)</button>
-			<button type="button">Parity (P)</button>
-			<button type="button">Time reversal (T)</button>
+			<a href="?action=charge"><button type="button">Charge (C)</button></a>
+			<a href="?action=parity"><button type="button">Parity (P)</button></a>
+			<a href="?action=time"><button type="button">Time reversal (T)</button></a>
 		</div>
 	</div>
-
+	
 	<div class="right">
 		<div class="runderrahmen">
 			<div class="runderrahmen">
 				General Info
 			</div>
-			saflldsöafk<br />
-			saflldsöafk<br />
+			<br />
+			<br />
+			<br />
+			<br />
 		</div>
 	</div>
 
 	
 	<div class="bottom" style="text-align:center">
-	<button type="button">Catalogue [PDG]</button>
-	<button type="button" style="margin-left:100px;">Info</button>
-	<button type="button" style="margin-left:100px;">Impressum</button>
+	<a href="http://pdg.lbl.gov/2013/listings/contents_listings.html"><button type="button">Catalogue [PDG]</button></a>
+	<a href="?page=info"><button type="button" style="margin-left:100px;">Info</button></a>
+	<a href="?page=info"><button type="button" style="margin-left:100px;">Impressum</button></a>
 	</div>
 </body>
 </html>
