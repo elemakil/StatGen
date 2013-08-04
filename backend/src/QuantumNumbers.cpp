@@ -11,14 +11,14 @@ const char * Colour::FileNames [] = { "red", "green", "blue", "white", "antired"
 
 const char * Flavour::GetName( int index ){
     if ( index < 0 ){
-	index = std::abs( index ) + 6;
+	index = ( ( index < 0 ) ? ( -1 * index ) : index ) + 6;
     }
     return Flavour::Names[ index ];
 }
 
 const char * Flavour::GetUName( int index ){
     if ( index < 0 ){
-	index = std::abs( index ) + 6;
+	index = ( ( index < 0 ) ? ( -1 * index ) : index ) + 6;
     }
     return Flavour::UNames[ index ];
 }
