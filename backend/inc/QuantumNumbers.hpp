@@ -41,6 +41,7 @@ namespace Spin {
     };
     
     extern const char * Names [];
+    extern const char * KNames [];
 }    
 
 // this functions switches from spin-up to spin down and vice-versa
@@ -86,6 +87,7 @@ namespace Handedness {
     };
     
     extern const char * Names [];
+    extern const char * KNames [];
 }
 
 // this functions switches from left-handedness to right-handedness and vice-versa
