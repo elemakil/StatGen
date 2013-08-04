@@ -69,7 +69,7 @@ int main( int argc, char * argv [] ) {
 	
 	if (query.substr(0,4) == "ket=" && query.size() >= 7)
 		ket = query.substr(4);
-	else if (numentriesincookie)
+	else if (!numentriesincookie)
 		ket = "|uud>|123>";
 	
 	
