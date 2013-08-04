@@ -117,9 +117,11 @@ int main( int argc, char * argv [] ) {
 		
 		if (query.substr(0,13) == "action=parity")
 		{
+			DEEEEEBUG += " into PARITY ! ";
 			std::stringstream newket;
 			for (auto it = cpvec->begin(); it != cpvec->end(); it++)
 			{
+				DEEEEEBUG += "124578";
 				if (it != cpvec->begin())
 					newket << "+";
 				Operators::TransformP(**it);
