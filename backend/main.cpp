@@ -190,7 +190,12 @@ int main( int argc, char * argv [] ) {
 	copyFiles(tFile, oFile);
 	tFile.close();
 	
-	if (cpvec)
+	if (query.substr(0,9) == "page=info")
+	{
+		TemplateParser info(config.Get<std::string>("Template_Info"), config.Get<std::string>("LiveFileName"));
+		info.PerformReplacement();
+	}
+	else if (cpvec)
 	{		
 		for (auto it = cpvec->begin(); it != cpvec->end(); it++)
 		{
@@ -199,11 +204,6 @@ int main( int argc, char * argv [] ) {
 			(*it)->HTMLPrint();
 			cout << "</b><br /><br />";
 		}
-	}
-	else if (query.substr(0,9) == "page=info")
-	{
-		TemplateParser info(config.Get<std::string>("Template_Info"), config.Get<std::string>("LiveFileName"));
-		info.PerformReplacement();
 	}
 	else
 	{
