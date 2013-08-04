@@ -37,7 +37,6 @@ a
 
 a:hover, a:active
 {
-	font-weight:normal;
 	color: #36454F;
 	text-decoration:none;
 }
@@ -231,6 +230,7 @@ h3{
 		<div class="runderrahmen">
 			<div class="runderrahmen">
 				Transformation history
+				<a href="?action=clear">[clear]</a>
 			</div>
 			<br />
 			$___THEM_CONTENT___$
