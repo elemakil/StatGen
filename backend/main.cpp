@@ -127,10 +127,12 @@ int main( int argc, char * argv [] ) {
 				Operators::TransformP(**it);
 				(*it)->PrintShort(newket);
 			}
+			DEEEEEBUG += ket + ":";
 			ket = newket.str();
+			DEEEEEBUG += ket;
 		}
-		
 	}
+	
 	
 	
 	
