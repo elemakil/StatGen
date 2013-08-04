@@ -21,9 +21,8 @@ OBJ_MAIN := $(OBJ_FILES) obj/main.o
 CXX_MAIN := $(CXX_FILES) main.cpp
 DEP_MAIN := $(DEP_FILES) dep/main.d
 
-all: directories $(OBJ_MAIN)
+all: directories links $(OBJ_MAIN)
 	$(CXX) $(LFLAGS) $(OBJ_MAIN) -o $(BINARY)
-	@ln -s $(notdir $(BINARY)) $(BINARY_LINK)
 	@echo ''
 	@echo '##################################################'
 	@echo '#          -> StatGen.cgi created!               #'
@@ -47,6 +46,9 @@ directories:
 	@${MKDIR_P} dep/
 	@${MKDIR_P} bin/
 	@${MKDIR_P} data/
+
+links:
+	@ln -sf $(notdir $(BINARY)) $(BINARY_LINK)
 
 -include $(DEP_MAIN)
 
