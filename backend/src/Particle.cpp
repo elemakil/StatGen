@@ -109,22 +109,22 @@ CompoundParticle::CompoundParticle( unsigned int uiNumConstituents ) : m_uiNumCo
 	int hColour = 0;
 	for ( size_t iPart=0; iPart<m_uiNumConstituents; ++iPart ){
 	    if ( m_apConstituents[ iPart ].Colour == Colour::Red ){
-		hColour += 440000;
+		hColour += 0x440000;
 	    }
 	    if ( m_apConstituents[ iPart ].Colour == Colour::Green ){
-		hColour += 004400;
+		hColour += 0x004400;
 	    }
 	    if ( m_apConstituents[ iPart ].Colour == Colour::Blue ){
-		hColour += 000044;
+		hColour += 0x000044;
 	    }
 	    if ( m_apConstituents[ iPart ].Colour == Colour::AntiRed ){
-		hColour += 004444;
+		hColour += 0x004444;
 	    }
 	    if ( m_apConstituents[ iPart ].Colour == Colour::AntiGreen ){
-		hColour += 440044;
+		hColour += 0x440044;
 	    }
 	    if ( m_apConstituents[ iPart ].Colour == Colour::AntiBlue ){
-		hColour += 444400;
+		hColour += 0x444400;
 	    }
 	}
 	std::stringstream ss;
