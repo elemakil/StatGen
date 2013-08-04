@@ -47,6 +47,7 @@ int main( int argc, char * argv [] ) {
 		numentriesincookie = lexical_cast<int>(cp.GetData("NumEntries"));
 	
 	std::string setCookieString;
+	std::string DEEEEEBUG;
 
 	
 	
@@ -68,14 +69,21 @@ int main( int argc, char * argv [] ) {
 	else 
 		ket = "|uud>|123>";
 	
+	DEEEEEBUG += query;
 	if (query.substr(0,5) == "action=" && numentriesincookie)
 	{
+		DEEEEEBUG += "1";
 		ket = cp.GetData("Op" + ToString(numentriesincookie-1));
 		if (query == "action=clear")
 		{
+			DEEEEEBUG += "2";
 			for (int i = numentriesincookie - 1; i >= 0; i--)
+			{
 				setCookieString += "Set-Cookie: Op" + ToString(i) + "=del; Expires=Thu, 01 Jan 1970 00:00:01 GMT;\n\r";
+				DEEEEEBUG += "2b";
+			}
 			numentriesincookie = 0;
+			DEEEEEBUG += "3";
 		}
 		
 	}
@@ -208,6 +216,7 @@ int main( int argc, char * argv [] ) {
 
 	cp.Print();
 	std::cout << "<!-- cokies: " << setCookieString << "\n\r" << " --->" << std::flush;
+	std::cout << "<!-- DEEEEEBUG: " << DEEEEEBUG << "\n\r" << " --->" << std::flush;
 
 	// dont foget to close that fstream file shit!
 	oFile.close();
