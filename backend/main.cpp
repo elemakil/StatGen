@@ -251,10 +251,10 @@ int main( int argc, char * argv [] ) {
 	header.AddData("___SEARCH_ME___", "REPLACE ME");
 	footer.PerformReplacement();*/
 	// read infile, size of read portion is defined by uiMaxChar
-
+/*
 	cp.Print();
 	std::cout << "<!-- cokies: " << setCookieString << "\n\r" << " --->" << std::flush;
-	std::cout << "<!-- DEEEEEBUG: " << DEEEEEBUG << "\n\r" << " --->" << std::flush;
+	std::cout << "<!-- DEEEEEBUG: " << DEEEEEBUG << "\n\r" << " --->" << std::flush;*/
 
 	// dont foget to close that fstream file shit!
 	oFile.close();
