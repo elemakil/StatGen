@@ -218,6 +218,7 @@ int main( int argc, char * argv [] ) {
 	copyFiles(tFile, oFile);
 	tFile.close();*/
 	TemplateParser footer(config.Get<std::string>("Template_Footer"), config.Get<std::string>("LiveFileName"));
+	header.AddData("___SEARCH_ME___", "REPLACE ME");
 	footer.PerformReplacement();
 	// read infile, size of read portion is defined by uiMaxChar
 
