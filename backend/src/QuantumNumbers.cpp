@@ -1,7 +1,7 @@
 #include "QuantumNumbers.hpp"
 
 const char * Flavour::Names [] = { "u", "d", "s", "c", "t", "b", "U", "D", "S", "C", "T", "B", 0 };
-const char * Flavour::UNames [] = { "u", "d", "s", "c", "t", "b", "\u02C9u", "\u02C9d", "S", "C", "T", "B", 0 };
+const char * Flavour::UNames [] = { "u", "d", "s", "c", "t", "b", "̄u", "̄d", "̄s", "̄c", "̄t", "̄b", 0 };
 const char * Spin::Names [] = { "↑", "↓", "↕", 0 };
 const char * Colour::Names [] = { "r", "g", "b", "w", "R", "G", "B", "W", "NoColour", 0 };
 const char * Handedness::Names [] = { "⇜", "⇝", "↭", 0 };
