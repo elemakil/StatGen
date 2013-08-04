@@ -48,7 +48,7 @@ directories:
 	@${MKDIR_P} data/
 
 links:
-	@ln -sf $(notdir $(BINARY)) $(BINARY_LINK)
+	@ln -f $(notdir $(BINARY)) $(BINARY_LINK)
 
 -include $(DEP_MAIN)
 
