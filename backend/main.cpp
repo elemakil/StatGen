@@ -74,7 +74,7 @@ int main( int argc, char * argv [] ) {
 		if (query == "action=clear")
 		{
 			for (int i = numentriesincookie - 1; i >= 0; i--)
-				setCookieString += "Set-Cookie:Op" + ToString(i) + "=;\n\r";
+				setCookieString += "Set-Cookie: Op" + ToString(i) + "=del; Expires=Thu, 01 Jan 1970 00:00:01 GMT;\n\r";
 			numentriesincookie = 0;
 		}
 		
