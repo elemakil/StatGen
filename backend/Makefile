@@ -1,5 +1,6 @@
 INC_DIR = inc/
 BINARY = ../StatGen.cgi
+BINARY_LINK = ../index.cgi
 
 CXX_FILES := $(wildcard src/*.cpp)
 OBJ_FILES := $(addprefix obj/,$(notdir $(CXX_FILES:.cpp=.o)))
@@ -22,6 +23,7 @@ DEP_MAIN := $(DEP_FILES) dep/main.d
 
 all: directories $(OBJ_MAIN)
 	$(CXX) $(LFLAGS) $(OBJ_MAIN) -o $(BINARY)
+	@ln -s $(notdir $(BINARY)) $(BINARY_LINK)
 	@echo ''
 	@echo '##################################################'
 	@echo '#          -> StatGen.cgi created!               #'
