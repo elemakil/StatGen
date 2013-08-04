@@ -220,7 +220,7 @@ h3{
 			<button type="submit">go</button>
 			<button type="reset">reset</button>
 		</form>
-		<form action="">
+		<form action="?ket=|uud>|123>">
 			<button type="submit" class="home">home</button>
 		</form>
 	</div>
