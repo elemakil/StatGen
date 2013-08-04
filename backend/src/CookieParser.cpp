@@ -11,6 +11,10 @@ CookieParser::CookieParser( char * cookies ){
 	    if ( sData == "" || sData.find_first_not_of( ' ' ) == std::string::npos ){
 		continue;
 	    }
+	    
+	    Trim( sKey );
+	    Trim( sData );
+	    
 	    m_mssData[ sKey ] = sData;
 	}
     }
