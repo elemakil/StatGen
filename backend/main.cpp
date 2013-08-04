@@ -42,6 +42,9 @@ int main( int argc, char * argv [] ) {
 	  }
 	//std::cout << cookie << std::endl;
 	CookieParser cp(cookie);
+	int numentriesincookie = 0;
+	if (cp.IsKeyPresent("NumEntries"))
+		numentriesincookie = lexical_cast<int>(cp.GetData("NumEntries"));
 	
 	std::string setCookieString;
 
@@ -53,15 +56,19 @@ int main( int argc, char * argv [] ) {
 		query_cstr = (char*)"ket=|uud>|123>";	
 			//std::cout << "NOQUERY" << std::flush;
 	}
+	
 	//std::cout << "TEST" << std::flush;
 
 	//std::cout << query_cstr << std::flush;
 	
 	std::string query(query_cstr), ket;
-	if (query.size() >= 7)
+	
+	if (query.substr(0,4) == "ket=" && query.size() >= 7)
 		ket = query.substr(4);
 	else 
 		ket = "|uud>|123>";
+	
+	if (query.substr(0,5) == "action=" && numentriesincookie = lexical_cast<int>(cp.GetData("NumEntries"));)
 	
 	int pos = ket.find('%');
 	while (pos >= 0)
@@ -91,10 +98,7 @@ int main( int argc, char * argv [] ) {
 	
 	
 	
-	
-	int numentriesincookie = 0;
-	if (cp.IsKeyPresent("NumEntries"))
-		numentriesincookie = lexical_cast<int>(cp.GetData("NumEntries"));
+
 	
 	setCookieString += "Set-Cookie:NumEntries=" + ToString(numentriesincookie+1) + ";\n\r";
 	setCookieString += "Set-Cookie:Op" + ToString(numentriesincookie) +  "=" + ket + ";\n\r";
