@@ -18,6 +18,8 @@ public:
     
     virtual inline std::string GetData( std::string sKey ) { return m_mssData[ sKey ]; }
     virtual inline bool IsKeyPresent( std::string sKey ) { return ( m_mssData.find( sKey ) != m_mssData.end() ); }
+    
+    virtual std::vector<std::string> GetOperations();
 private:
     std::map<std::string,std::string> m_mssData;
 };
