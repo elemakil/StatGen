@@ -52,7 +52,7 @@ int main( int argc, char * argv [] ) {
 	
 	
 	char *query_cstr = getenv("QUERY_STRING");
-	if (!query_cstr)
+	if (!query_cstr && !numentriesincookie)
 	{
 		query_cstr = (char*)"ket=|uud>|123>";	
 			//std::cout << "NOQUERY" << std::flush;
@@ -66,7 +66,7 @@ int main( int argc, char * argv [] ) {
 	
 	if (query.substr(0,4) == "ket=" && query.size() >= 7)
 		ket = query.substr(4);
-	else 
+	else if (numentriesincookie)
 		ket = "|uud>|123>";
 	
 	
