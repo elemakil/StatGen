@@ -68,7 +68,8 @@ int main( int argc, char * argv [] ) {
 	else 
 		ket = "|uud>|123>";
 	
-	if (query.substr(0,5) == "action=" && numentriesincookie = lexical_cast<int>(cp.GetData("NumEntries"));)
+	if (query.substr(0,5) == "action=" && numentriesincookie)
+		;
 	
 	int pos = ket.find('%');
 	while (pos >= 0)
