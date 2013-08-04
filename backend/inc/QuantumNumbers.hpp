@@ -66,6 +66,7 @@ namespace Colour {
     };
     
     extern const char * Names [];
+    extern const char * KNames [];
     extern const char * FileNames [];
 }
 
