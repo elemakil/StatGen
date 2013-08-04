@@ -8,7 +8,7 @@ CookieParser::CookieParser( char * cookies ){
 	    std::string sKey = vsCookies.at( iCookie ).substr( 0, splitPos );
 	    std::string sData = vsCookies.at( iCookie ).substr( splitPos + 1, std::string::npos );
 	    // check for empty data / whitespace data
-	    if ( sData == "" || sData.find_first_not_of(' ') != std::string::npos ){
+	    if ( sData == "" || sData.find_first_not_of( ' ' ) == std::string::npos ){
 		continue;
 	    }
 	    m_mssData[ sKey ] = sData;
@@ -21,9 +21,11 @@ CookieParser::CookieParser( char * cookies ){
 }
 
 /* virtual */ void CookieParser::Print( std::ostream & aStream /* = std::cout */ ){
+    aStream << "<!-- Data has " << m_mssData.size() << " entries -->" << std::endl;
     for ( auto it=m_mssData.begin(); it!=m_mssData.end(); ++it ){
-	aStream << "\"" << it->first << "\" -> \"" << it->second << "\"" << std::endl;
+	aStream << "<!-- \"" << it->first << "\" -> \"" << it->second << "\" -->" << std::endl;
     }
+    aStream.flush();
 }
 
 /* virtual */ std::vector<std::string> CookieParser::GetOperations(){

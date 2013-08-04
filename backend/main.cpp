@@ -157,6 +157,8 @@ int main( int argc, char * argv [] ) {
 	copyFiles(tFile, oFile);
 	tFile.close();
 	// read infile, size of read portion is defined by uiMaxChar
+
+	cp.Print();
 	
 
 	// dont foget to close that fstream file shit!
