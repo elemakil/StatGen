@@ -8,6 +8,8 @@
 			<a href="?action=parity"><button type="button">Parity (P)</button></a>
 			<a href="?action=time"><button type="button">Time reversal (T)</button></a>
 		</div>
+		
+		<div class="bottomspacer"></div>
 	</div>
 	
 	<div class="right">
@@ -20,6 +22,8 @@
 			<br />
 			<br />
 		</div>
+		
+		<div class="bottomspacer"></div>
 	</div>
 
 	

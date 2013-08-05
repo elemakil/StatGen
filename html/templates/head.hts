@@ -162,9 +162,15 @@ div.top select{
 	
 }
 
+
 div.topspacer {
-	height:40px;
+	height:60px;
 }
+
+div.bottomspacer {
+	height:32px;
+}
+
 
 div.bottom {
 	position:fixed;
@@ -252,6 +258,8 @@ h3{
 			<br />
 			<br />
 		</div>
+		
+		<div class="bottomspacer"></div>
 	</div>
 
 	<div class="middle">

@@ -9,6 +9,13 @@
 #include "QuantumNumbers.hpp"
 #include "Operators.hpp"
 
+struct AbsoluteColour {
+	int red;
+	int green;
+	int blue;
+};
+
+
 class AbstractParticle {
 public:
     virtual void Print( std::ostream & aStream = std::cout ) = 0;
@@ -49,10 +56,13 @@ public:
     virtual int GetTotalAngularMomentum();
     virtual bool IsColourNeutral();
     
-    virtual std::string GetAbsoluteColour();
+    virtual std::string GetHTMLColour();
     
     virtual std::string GetFlavours();
+			std::string GetFlavoursSorted();
     virtual std::string GetColours();
+	AbsoluteColour GetAbsoluteColor();
+			int GetAbsoluteSpin();
     virtual std::string GetSpins();
     virtual std::string GetHandednesses();
     
