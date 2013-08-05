@@ -220,9 +220,10 @@ int main( int argc, char * argv [] ) {
 	//	std::ifstream tFile2;
 	//	std::cout << config.Get<std::string>("Template_Middle").c_str() << std::flush;
 	//	tFile2.open("html/templates/middle.hts");
-	tFile.open(config.Get<string>("Template_Middle").c_str());
+	/*tFile.open(config.Get<string>("Template_Middle").c_str());
 	copyFiles(tFile, oFile);
-	tFile.close();
+	tFile.close();*/
+	std::cout << "</div>
 	
 	if (query.substr(0,9) == "page=info")
 	{
@@ -244,6 +245,48 @@ int main( int argc, char * argv [] ) {
 	{
 		std::cout << "NO PARTICLES FOUND" << std::flush;
 	}
+	
+	for
+	std::string GetFlavoursSorted();
+	
+	std::string flav;
+	for (auto it = cpvec->begin(); it != cpvec->end(); it++)
+	{
+		if (it == cpvec->begin())
+			flav = (*it)->GetFlavoursSorted();
+		else
+			if (flav != (*it)->GetFlavoursSorted())
+			{
+				flav = "Superposition of different flavour states";
+			}
+	}
+	std::cout << "<p>Flavour: " << flav << "</p>" << std::flush;
+	AbsoluteColour ac;bool difcol = false;bool white = false;
+	for (auto it = cpvec->begin(); it != cpvec->end(); it++)
+	{
+		auto c = (*it)->GetAbsoluteColor();
+		if (it == cpvec->begin())
+		{
+			ac = c;
+			white = (*it)->IsColourNeutral();
+		}
+		else
+			if (ac.red != c.red || ac.green != c.green || ac.blue != c.blue)
+			{
+				difcol = true;
+			}
+	}
+	std::cout << "<p>Colour: "
+	if (difcol)
+		std::cout << "Superposition of different colour states";
+	else {
+		if (white)
+			std::cout << "Color singlet";
+		else
+			std::cout << "Colored state (not possible): (" << ac.red  << ", " << ac.green  << ", " << ac.blue  << ")";
+	}
+	std::cout << "</p>" << std::flush;
+	
 	
 /*	tFile.open(config.Get<string>("Template_Middle2").c_str());
 	copyFiles(tFile, oFile);
