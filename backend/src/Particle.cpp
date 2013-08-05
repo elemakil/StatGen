@@ -108,19 +108,17 @@ CompoundParticle::CompoundParticle( unsigned int uiNumConstituents ) : m_uiNumCo
     else {
 		int hColour = 0;
 		int red = 0, green = 0, blue = 0;
-		for ( size_t iPart=0; iPart<m_uiNumConstituents; ++iPart ){
-			auto ac =  m_apConstituents[ iPart ].GetAbsoluteColor();
-			red += ac.red * 0x33;
-			green += ac.green * 0x33;
-			blue += ac.blue * 0x33;
-		}
+		auto ac = GetAbsoluteColor();
+		red += ac.red * 0x33;
+		green += ac.green * 0x33;
+		blue += ac.blue * 0x33;
 		while (red < 0 || green < 0 || blue < 0 || !(red || green || blue))
 		{
 			red += 0x33;
 			green += 0x33;
 			blue += 0x33;
 		}
-		int maxc = std::max(red,max(std::green,blue)
+		int maxc = std::max(red,std::max(green,blue));
 		if (maxc > 0xff)
 		{
 			red = (red * 0xff) / maxc;
