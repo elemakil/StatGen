@@ -62,6 +62,7 @@ public:
 			std::string GetFlavoursSorted();
     virtual std::string GetColours();
 	AbsoluteColour GetAbsoluteColor();
+			int GetAbsoluteSpin();
     virtual std::string GetSpins();
     virtual std::string GetHandednesses();
     

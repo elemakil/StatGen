@@ -233,6 +233,10 @@ AbsoluteColour CompoundParticle::GetAbsoluteColor(){
     return sReturn;
 }
 
+int CompoundParticle::GetAbsoluteSpin() { // STUB
+	return 0;
+}
+
 /* virtual */ std::string CompoundParticle::GetHandednesses(){
     std::string sReturn;
     for ( size_t iPart=0; iPart<m_uiNumConstituents; ++iPart ){

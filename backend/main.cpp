@@ -283,6 +283,22 @@ int main( int argc, char * argv [] ) {
 			std::cout << "Colored state (not possible): (" << ac.red  << ", " << ac.green  << ", " << ac.blue  << ")";
 	}
 	std::cout << "</p>" << std::flush;
+	int spin; bool difspin = false;
+	for (auto it = cpvec->begin(); it != cpvec->end(); it++)
+	{
+		auto s = (*it)->GetAbsoluteSpin();
+		if (it == cpvec->begin())
+			spin = s;
+		else
+			if (spin != s)
+				difspin = true;
+	}
+	std::cout << "<p>Spin: ";
+	if (difcol)
+		std::cout << "Superposition of different spin states";
+	else
+		std::cout << "Total spin = " << spin;
+	std::cout << "</p>" << std::flush;
 	
 	
 /*	tFile.open(config.Get<string>("Template_Middle2").c_str());
