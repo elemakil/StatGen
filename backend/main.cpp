@@ -223,7 +223,7 @@ int main( int argc, char * argv [] ) {
 	/*tFile.open(config.Get<string>("Template_Middle").c_str());
 	copyFiles(tFile, oFile);
 	tFile.close();*/
-	std::cout << "</div>
+	std::cout << "</div>\n";
 	
 	if (query.substr(0,9) == "page=info")
 	{
@@ -245,9 +245,6 @@ int main( int argc, char * argv [] ) {
 	{
 		std::cout << "NO PARTICLES FOUND" << std::flush;
 	}
-	
-	for
-	std::string GetFlavoursSorted();
 	
 	std::string flav;
 	for (auto it = cpvec->begin(); it != cpvec->end(); it++)
@@ -276,7 +273,7 @@ int main( int argc, char * argv [] ) {
 				difcol = true;
 			}
 	}
-	std::cout << "<p>Colour: "
+	std::cout << "<p>Colour: ";
 	if (difcol)
 		std::cout << "Superposition of different colour states";
 	else {

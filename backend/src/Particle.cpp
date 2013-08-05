@@ -166,8 +166,8 @@ CompoundParticle::CompoundParticle( unsigned int uiNumConstituents ) : m_uiNumCo
 }
 
 /* virtual */ bool CompoundParticle::IsColourNeutral(){
-	AbsoluteColor nums = GetAbsoluteColor();
-    if ( nums.Red == nums.Green && nums.Red == nums.Blue ){
+	AbsoluteColour nums = GetAbsoluteColor();
+    if ( nums.red == nums.green && nums.red == nums.blue ){
 		return true;
     }
     else {
@@ -186,13 +186,14 @@ CompoundParticle::CompoundParticle( unsigned int uiNumConstituents ) : m_uiNumCo
 std::string CompoundParticle::GetFlavoursSorted()
 {
     std::string sReturn = GetFlavours();
-    return std::sort(sReturn.begin(),sReturn.end());
+	std::sort(sReturn.begin(),sReturn.end());
+    return sReturn;
 }
 
 /* virtual */ std::string CompoundParticle::GetColours(){
     std::string sReturn;
     for ( size_t iPart=0; iPart<m_uiNumConstituents; ++iPart ){
-	sReturn += Colour::KNames[ m_apConstituents[ iPart ].Colour ];
+		sReturn += Colour::KNames[ m_apConstituents[ iPart ].Colour ];
     }    
     return sReturn;
 }
