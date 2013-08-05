@@ -56,7 +56,7 @@ public:
     virtual int GetTotalAngularMomentum();
     virtual bool IsColourNeutral();
     
-    virtual std::string GetAbsoluteColour();
+    virtual std::string GetHTMLColour();
     
     virtual std::string GetFlavours();
 			std::string GetFlavoursSorted();

@@ -101,35 +101,39 @@ CompoundParticle::CompoundParticle( unsigned int uiNumConstituents ) : m_uiNumCo
     if ( bHasHandedness ) { aStream << "|" << sHandedness << ">"; }
 }
 
-/* virtual */ std::string CompoundParticle::GetAbsoluteColour(){
+/* virtual */ std::string CompoundParticle::GetHTMLColour(){
     if ( IsColourNeutral() ){
-	return std::string( "444444" );
+		return std::string( "444444" );
     }
     else {
-	int hColour = 0;
-	for ( size_t iPart=0; iPart<m_uiNumConstituents; ++iPart ){
-	    if ( m_apConstituents[ iPart ].Colour == Colour::Red ){
-		hColour += 0x440000;
-	    }
-	    if ( m_apConstituents[ iPart ].Colour == Colour::Green ){
-		hColour += 0x004400;
-	    }	
-	    if ( m_apConstituents[ iPart ].Colour == Colour::Blue ){
-		hColour += 0x000044;
-	    }
-	    if ( m_apConstituents[ iPart ].Colour == Colour::AntiRed ){
-		hColour += 0x004444;
-	    }
-	    if ( m_apConstituents[ iPart ].Colour == Colour::AntiGreen ){
-		hColour += 0x440044;
-	    }
-	    if ( m_apConstituents[ iPart ].Colour == Colour::AntiBlue ){
-		hColour += 0x444400;
-	    }
-	}
-	std::stringstream ss;
-	ss << std::hex << std::setw( 6 ) << std::setfill( '0' ) << hColour;
-	return ss.str();
+		int hColour = 0;
+		int red = 0, green = 0, blue = 0;
+		for ( size_t iPart=0; iPart<m_uiNumConstituents; ++iPart ){
+			auto ac =  m_apConstituents[ iPart ].GetAbsoluteColor();
+			red += ac.red * 0x33;
+			green += ac.green * 0x33;
+			blue += ac.blue * 0x33;
+		}
+		while (red < 0 || green < 0 || blue < 0 || !(red || green || blue))
+		{
+			red += 0x33;
+			green += 0x33;
+			blue += 0x33;
+		}
+		int maxc = std::max(red,max(std::green,blue)
+		if (maxc > 0xff)
+		{
+			red = (red * 0xff) / maxc;
+			green = (green * 0xff) / maxc;
+			blue = (blue * 0xff) / maxc;
+		}
+		
+		hColour = std::min(red,0xff)   * 0x010000
+				+ std::min(green,0xff) * 0x000100
+				+ std::min(blue,0xff)  * 0x000001;
+		std::stringstream ss;
+		ss << std::hex << std::setw( 6 ) << std::setfill( '0' ) << hColour;
+		return ss.str();
     }
 }
 
