@@ -294,7 +294,7 @@ int main( int argc, char * argv [] ) {
 				difspin = true;
 	}
 	std::cout << "<p>Spin: ";
-	if (difcol)
+	if (difspin)
 		std::cout << "Superposition of different spin states";
 	else
 		std::cout << "Total spin = " << spin;
